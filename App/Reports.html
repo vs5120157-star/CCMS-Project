@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCMS - Reports</title>
+    <link rel="stylesheet" href="Reports.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+<div class="dashboard">
+    <aside class="sidebar">
+        <div class="logo"><div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div><span>CCMS</span></div>
+        <nav class="menu">
+            <a href="#" data-route="Admin_Dashboard.html" class="menu-item"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+            <a href="#" data-route="Manage_Complaint.html" class="menu-item"><i class="fa-solid fa-clipboard-list"></i><span>Manage Complaints</span></a>
+            <a href="#" data-route="Categories.html" class="menu-item"><i class="fa-solid fa-layer-group"></i><span>Categories</span></a>
+            <a href="#" data-route="Users.html" class="menu-item"><i class="fa-solid fa-users"></i><span>Users</span></a>
+            <a href="#" data-route="Reports.html" class="menu-item active"><i class="fa-solid fa-chart-column"></i><span>Reports</span></a>
+            <a href="#logout" class="menu-item logout"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <div class="content-card">
+            <div class="page-heading">
+                <div>
+                    <h1>Reports</h1>
+                    <p class="subtitle">Track complaint volume, status, and categories.</p>
+                </div>
+                <button class="refresh-button" id="refresh-report" type="button"><i class="fa-solid fa-rotate-right"></i> Refresh</button>
+            </div>
+
+            <div class="report-toolbar">
+                <label for="report-status">Status</label>
+                <select id="report-status">
+                    <option value="All">All statuses</option>
+                    <option value="Pending">Pending</option>
+                    <option value="In Progress">In Progress</option>
+                    <option value="Resolved">Resolved</option>
+                </select>
+                <label for="report-category">Category</label>
+                <select id="report-category"><option value="All">All categories</option></select>
+            </div>
+
+            <div class="summary-grid">
+                <div class="summary-card blue"><span class="summary-icon"><i class="fa-solid fa-file-lines"></i></span><div><strong id="report-total">0</strong><span>Total complaints</span></div></div>
+                <div class="summary-card yellow"><span class="summary-icon"><i class="fa-regular fa-clock"></i></span><div><strong id="report-pending">0</strong><span>Pending</span></div></div>
+                <div class="summary-card purple"><span class="summary-icon"><i class="fa-solid fa-spinner"></i></span><div><strong id="report-progress">0</strong><span>In progress</span></div></div>
+                <div class="summary-card green"><span class="summary-icon"><i class="fa-solid fa-circle-check"></i></span><div><strong id="report-resolved">0</strong><span>Resolved</span></div></div>
+            </div>
+
+            <div class="report-panels">
+                <section class="report-panel"><div class="panel-heading"><h2>Status overview</h2><span>Current distribution</span></div><div class="status-bars" id="status-bars"></div></section>
+                <section class="report-panel"><div class="panel-heading"><h2>Complaints by category</h2><span>Top categories</span></div><div class="category-bars" id="category-bars"></div></section>
+            </div>
+
+            <section class="report-panel recent-panel"><div class="panel-heading"><h2>Filtered complaints</h2><span id="report-result-count"></span></div><div class="table-container"><table><thead><tr><th>#</th><th>Subject</th><th>Category</th><th>Status</th><th>Date</th></tr></thead><tbody id="report-table-body"></tbody></table></div></section>
+        </div>
+    </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CCMS - College Complaint Management System</title>
+
+    <link rel="stylesheet" href="Home.css">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <div class="logo">
+            <div class="logo-icon">🛡</div>
+            <span>CCMS</span>
+        </div>
+
+        <nav>
+            <a href="#">Home</a>
+            <a href="#" data-route="About.html">About</a>
+            <a href="#" data-route="Features.html">Features</a>
+            <a href="#" data-route="Contact.html">Contact</a>
+        </nav>
+
+        <div class="nav-buttons">
+            <a class="student-btn" id="student-nav-link" href="#" data-route="Login.html">Student Login</a>
+            <a class="admin-btn" href="#" data-route="Admin_Login.html">Admin Login</a>
+        </div>
+
+    </header>
+
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                COLLEGE<br>
+                <span>COMPLAINT</span><br>
+                MANAGEMENT<br>
+                SYSTEM
+            </h1>
+
+            <p>
+                A smart platform to register, track and resolve
+                complaints easily. We are here to make your
+                college experience better.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a class="primary-btn" id="admin-register-hero-link" href="#" data-route="Admin_Register.html">
+                    Admin Register
+                </a>
+
+                <a class="secondary-btn" href="#" data-route="Registration.html">
+                    Student Register
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= ILLUSTRATION ================= -->
+
+        <div class="hero-image">
+            <img src="Home.png" alt="Student using a laptop to manage college complaints">
+        </div>
+
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>

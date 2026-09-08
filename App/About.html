@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCMS - About</title>
+    <link rel="stylesheet" href="About.css">
+</head>
+<body>
+    <header class="navbar">
+        <a class="logo" href="#" data-route="Home.html">
+            <span class="logo-icon">🛡</span>
+            <span>CCMS</span>
+        </a>
+        <nav>
+            <a href="#" data-route="Home.html">Home</a>
+            <a href="#" class="active">About</a>
+            <a href="#" data-route="Features.html">Features</a>
+            <a href="#" data-route="Contact.html">Contact</a>
+        </nav>
+        <div class="nav-buttons">
+            <a class="student-btn" href="#" data-route="Login.html">Student Login</a>
+            <a class="admin-btn" href="#" data-route="Admin_Login.html">Admin Login</a>
+        </div>
+    </header>
+
+    <main class="about-page">
+        <section class="about-hero">
+            <div class="about-copy">
+                <h1>Making campus complaints easier to manage.</h1>
+                <p class="intro">CCMS gives students a simple way to report concerns and track progress while helping administrators resolve complaints in one organized workspace.</p>
+                <div class="action-buttons">
+                <a class="primary-btn" id="admin-register-hero-link" href="#" data-route="Admin_Register.html">
+                    Admin Register
+                </a>
+                    <a class="secondary-btn" href="#" data-route="Registration.html">Student Register</a>
+                </div>
+            </div>
+            <div class="about-image">
+                <img src="Home.png" alt="Student using CCMS on a laptop">
+            </div>
+        </section>
+
+        <section class="value-grid" aria-label="CCMS benefits">
+            <article><span class="value-icon">✓</span><h2>Report clearly</h2><p>Submit a complaint with the right category and details.</p></article>
+            <article><span class="value-icon">◷</span><h2>Track progress</h2><p>See whether an issue is pending, in progress, or resolved.</p></article>
+            <article><span class="value-icon">▣</span><h2>Resolve together</h2><p>Keep students and administrators aligned from start to finish.</p></article>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

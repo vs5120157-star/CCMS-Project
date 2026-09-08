@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Features.css">
+</head>
+<body>
+    <header class="navbar">
+        <a class="logo" href="#" data-route="Home.html"><span class="logo-icon">🛡</span><span>CCMS</span></a>
+        <nav>
+            <a href="#" data-route="Home.html">Home</a>
+            <a href="#" data-route="About.html">About</a>
+            <a href="#" class="active">Features</a>
+            <a href="#" data-route="Contact.html">Contact</a>
+        </nav>
+        <div class="nav-buttons">
+            <a class="student-btn" href="#" data-route="Login.html">Student Login</a>
+            <a class="admin-btn" href="#" data-route="Admin_Login.html">Admin Login</a>
+        </div>
+    </header>
+    <main class="features-page">
+        <section class="features-hero">
+            <div class="features-copy">
+                <h1>Everything needed to move campus complaints forward.</h1>
+                <p class="intro">One connected system for reporting, tracking, managing, and resolving student complaints.</p>
+                <div class="action-buttons">
+                <a class="primary-btn" id="admin-register-hero-link" href="#" data-route="Admin_Register.html">
+                    Admin Register
+                </a>
+                    <a class="secondary-btn" href="#" data-route="Registration.html">Student Register</a>
+                </div>
+            </div>
+            <div class="features-image"><img src="Home.png" alt="CCMS complaint management features"></div>
+        </section>
+        <section class="feature-grid" aria-label="CCMS features">
+            <article><span>✓</span><h2>Easy complaint submission</h2><p>Students can submit detailed complaints with useful categories.</p></article>
+            <article><span>◷</span><h2>Live status tracking</h2><p>Follow every complaint from pending to resolved.</p></article>
+            <article><span>▣</span><h2>Admin management</h2><p>Administrators can filter complaints and update statuses quickly.</p></article>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

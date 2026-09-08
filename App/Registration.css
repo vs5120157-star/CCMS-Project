@@ -1,0 +1,425 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 20px;
+    background: #f4f7fb;
+    font-family: Arial, Helvetica, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* MAIN CONTAINER */
+
+.register-container {
+    width: min(850px, 100%);
+    min-height: min(510px, calc(100vh - 40px));
+
+    background: #ffffff;
+    border-radius: 8px;
+
+    display: flex;
+
+    overflow: hidden;
+
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+
+/* =========================
+   LEFT SECTION
+========================= */
+
+.left-section {
+    width: 42%;
+    background: linear-gradient(
+        145deg,
+        #082653,
+        #06214a
+    );
+
+    color: white;
+
+    padding: 22px 32px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* Logo */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.logo-icon {
+    width: 20px;
+    height: 20px;
+
+    background: #ffffff;
+    color: #1463d8;
+
+    border-radius: 4px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 11px;
+}
+
+
+/* Left Content */
+
+.left-content {
+    margin-top: 42px;
+}
+
+.left-content h1 {
+    font-size: 22px;
+    line-height: 1.45;
+    font-weight: 700;
+
+    margin-bottom: 20px;
+}
+
+.left-content p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #e1e9f7;
+}
+
+
+/* =========================
+   ILLUSTRATION
+========================= */
+
+.illustration {
+    position: absolute;
+
+    bottom: 20px;
+    left: 65px;
+
+    width: 170px;
+    height: 125px;
+}
+
+
+/* Clipboard */
+
+.clipboard {
+    position: absolute;
+
+    left: 25px;
+    bottom: 4px;
+
+    width: 70px;
+    height: 88px;
+
+    background: #d9e4ef;
+
+    border-radius: 4px;
+
+    padding: 18px 9px;
+
+    box-shadow: 0 5px 10px rgba(0,0,0,.15);
+}
+
+.clip {
+    position: absolute;
+
+    width: 27px;
+    height: 10px;
+
+    top: -5px;
+    left: 21px;
+
+    background: #bdcada;
+
+    border-radius: 4px;
+}
+
+.check-line {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    margin-bottom: 10px;
+}
+
+.check-line .box {
+    width: 10px;
+    height: 10px;
+
+    border: 1px solid #7190ad;
+
+    font-size: 7px;
+    color: #1765d1;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.check-line span:last-child {
+    height: 4px;
+    width: 28px;
+
+    background: #a9bbce;
+
+    border-radius: 3px;
+}
+
+
+/* Person */
+
+.person {
+    position: absolute;
+
+    right: 15px;
+    bottom: 0;
+
+    width: 65px;
+    height: 105px;
+}
+
+.head {
+    width: 28px;
+    height: 28px;
+
+    background: #e5edf5;
+
+    border-radius: 50%;
+
+    margin-left: 20px;
+}
+
+.body {
+    width: 50px;
+    height: 62px;
+
+    background: #dbe6f0;
+
+    border-radius: 25px 25px 5px 5px;
+
+    margin-top: 5px;
+}
+
+
+/* =========================
+   RIGHT SECTION
+========================= */
+
+.right-section {
+    width: 58%;
+
+    padding: 28px 34px;
+
+    background: #fff;
+}
+
+.right-section h2 {
+    text-align: center;
+
+    color: #111827;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    margin-bottom: 15px;
+}
+
+
+/* Form */
+
+.form-group {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    margin-bottom: 9px;
+}
+
+.form-group label {
+    width: 95px;
+
+    color: #202020;
+
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: calc(100% - 95px);
+
+    height: 23px;
+
+    border: 1px solid #e2e2e2;
+
+    border-radius: 2px;
+
+    padding: 0 9px;
+
+    outline: none;
+
+    font-size: 8px;
+
+    color: #333;
+
+    transition: .2s;
+}
+
+.form-group input::placeholder {
+    color: #b5b5b5;
+}
+
+.form-group input:focus {
+    border-color: #1769df;
+
+    box-shadow: 0 0 0 2px rgba(23,105,223,.08);
+}
+
+
+/* Password Eye */
+
+.password-field .eye {
+    position: absolute;
+
+    right: 8px;
+
+    top: 7px;
+
+    font-size: 9px;
+
+    color: #999;
+
+    cursor: pointer;
+}
+
+
+/* Register Button */
+
+button {
+    width: 100%;
+
+    height: 27px;
+
+    margin-top: 4px;
+
+    border: none;
+    border-radius: 3px;
+
+    background: #1166dc;
+
+    color: white;
+
+    font-size: 9px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .2s;
+}
+
+button:hover {
+    background: #0954bb;
+}
+
+
+/* Login text */
+
+.login-text {
+    text-align: center;
+
+    font-size: 8px;
+
+    color: #444;
+
+    margin-top: 14px;
+}
+
+.login-text a {
+    color: #1266dc;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+.login-text a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .register-container {
+        width: 100%;
+        max-width: 450px;
+
+        flex-direction: column;
+    }
+
+    .left-section {
+        width: 100%;
+        min-height: 230px;
+    }
+
+    .right-section {
+        width: 100%;
+    }
+
+    .illustration {
+        right: 30px;
+        left: auto;
+    }
+}
+
+@media (max-width: 450px) {
+
+    .right-section {
+        padding: 25px 20px;
+    }
+
+    .form-group {
+        display: block;
+    }
+
+    .form-group label {
+        display: block;
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .form-group input {
+        width: 100%;
+    }
+
+    .password-field .eye {
+        top: 27px;
+    }
+}

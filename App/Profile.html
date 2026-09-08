@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCMS Profile</title>
+    <link rel="stylesheet" href="Profile.css">
+</head>
+<body>
+<div class="dashboard">
+    <aside class="sidebar">
+        <div class="logo"><div class="logo-icon">◉</div><span>CCMS</span></div>
+        <nav>
+            <a href="#" data-route="Dashboard.html"><span>⌂</span>Dashboard</a>
+            <a href="#" data-route="Submit_Complaint.html"><span>▣</span>Submit Complaint</a>
+            <a href="#" data-route="My_Complaint.html"><span>▤</span>My Complaints</a>
+            <a href="#" data-route="Profile.html" class="active"><span>♙</span>Profile</a>
+            <a href="#" data-route="Change_Password.html"><span>⚿</span>Change Password</a>
+            <a href="#logout"><span>↪</span>Logout</a>
+        </nav>
+    </aside>
+
+    <main class="main">
+        <header class="header">
+            <div><p class="eyebrow">STUDENT ACCOUNT</p><h1>My Profile</h1></div>
+            <div class="profile-icon">👤</div>
+        </header>
+        <section class="profile-layout">
+            <div class="profile-card identity-card">
+                <div class="avatar" id="profile-avatar">S</div>
+                <h2 id="profile-name">Student</h2>
+                <p id="profile-email">student@example.com</p>
+                <span class="account-status">Active account</span>
+            </div>
+            <form class="profile-card profile-form" id="profile-form">
+                <div class="section-heading"><h2>Personal details</h2><span>Local profile</span></div>
+                <label for="full-name">Full Name</label>
+                <input id="full-name" name="name" required>
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" required>
+                <button type="submit">Save Changes</button>
+                <p id="profile-message" role="status"></p>
+            </form>
+        </section>
+    </main>
+</div>
+<script src="app.js"></script>
+<script>
+    const profile = JSON.parse(localStorage.getItem('rdecStudent') || 'null');
+    if (profile) {
+        document.getElementById('full-name').value = profile.name || '';
+        document.getElementById('email').value = profile.email || '';
+        document.getElementById('profile-name').textContent = profile.name || 'Student';
+        document.getElementById('profile-email').textContent = profile.email || '';
+        document.getElementById('profile-avatar').textContent = (profile.name || 'S').charAt(0).toUpperCase();
+    }
+    document.getElementById('profile-form').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const form = event.currentTarget;
+        const updated = { name: form.name.value.trim(), email: form.email.value.trim() };
+        try {
+            const result = await apiRequest('/me', { method: 'PATCH', body: JSON.stringify(updated) });
+            Object.assign(updated, result.user);
+            localStorage.setItem('rdecStudent', JSON.stringify(updated));
+        } catch (error) {
+            document.getElementById('profile-message').textContent = error.message;
+            return;
+        }
+        document.getElementById('profile-name').textContent = updated.name;
+        document.getElementById('profile-email').textContent = updated.email;
+        document.getElementById('profile-avatar').textContent = updated.name.charAt(0).toUpperCase();
+        document.getElementById('profile-message').textContent = 'Profile updated successfully.';
+    });
+</script>
+</body>
+</html>

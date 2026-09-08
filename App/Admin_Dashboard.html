@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="admin_Dashboard.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- ================= SIDEBAR ================= -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>CCMS</span>
+            </div>
+
+            <nav>
+                <a href="#" data-route="Admin_Dashboard.html" class="active">
+                    <i class="fa-solid fa-gauge"></i>
+                    Dashboard
+                </a>
+
+                <a href="#" data-route="Manage_Complaint.html">
+                    <i class="fa-solid fa-file-lines"></i>
+                    Manage Complaints
+                </a>
+
+                <a href="#" data-route="Categories.html">
+                    <i class="fa-solid fa-layer-group"></i>
+                    Categories
+                </a>
+
+                <a href="#" data-route="Users.html">
+                    <i class="fa-solid fa-users"></i>
+                    Users
+                </a>
+
+                <a href="#" data-route="Reports.html">
+                    <i class="fa-solid fa-chart-column"></i>
+                    Reports
+                </a>
+
+                <a href="#logout" class="logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    Logout
+                </a>
+            </nav>
+
+        </aside>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+        <main class="main">
+
+            <!-- TOP BAR -->
+            <header class="topbar">
+
+                <h2>Admin Dashboard</h2>
+
+                <div class="admin-menu">
+                    <button class="admin" id="admin-profile-toggle" type="button" aria-expanded="false" aria-controls="admin-dropdown">
+                    <div class="admin-icon">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <span>Admin</span>
+                    <i class="fa-solid fa-chevron-down arrow"></i>
+                    </button>
+                    <div class="admin-dropdown" id="admin-dropdown" hidden>
+                        <a href="#" data-route="Admin_Profile.html"><i class="fa-solid fa-user-pen"></i> Profile</a>
+                        <a href="#logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                    </div>
+                </div>
+
+            </header>
+
+
+            <!-- CONTENT -->
+            <section class="content">
+
+                <!-- ================= STAT CARDS ================= -->
+                <div class="stats">
+
+                    <div class="card total">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-file"></i>
+                        </div>
+
+                        <div>
+                            <h3 id="admin-total-count">0</h3>
+                            <p>Total Complaints</p>
+                        </div>
+                    </div>
+
+
+                    <div class="card pending">
+                        <div class="card-icon">
+                            <i class="fa-regular fa-clock"></i>
+                        </div>
+
+                        <div>
+                            <h3 id="admin-pending-count">0</h3>
+                            <p>Pending</p>
+                        </div>
+                    </div>
+
+
+                    <div class="card progress">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-spinner"></i>
+                        </div>
+
+                        <div>
+                            <h3 id="admin-progress-count">0</h3>
+                            <p>In Progress</p>
+                        </div>
+                    </div>
+
+
+                    <div class="card resolved">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-circle-check"></i>
+                        </div>
+
+                        <div>
+                            <h3 id="admin-resolved-count">0</h3>
+                            <p>Resolved</p>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- ================= RECENT COMPLAINTS ================= -->
+                <div class="complaints">
+
+                    <div class="section-header">
+                        <h3>Recent Complaints</h3>
+
+                        <button type="button" data-route="Manage_Complaint.html">View All</button>
+                    </div>
+
+
+                    <div class="table-container">
+
+                        <table>
+
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Subject</th>
+                                    <th>Student</th>
+                                    <th>Category</th>
+                                    <th>Status</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="admin-complaints-body"></tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+<script src="app.js"></script>
+</body>
+</html>

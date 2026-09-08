@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCMS - Categories</title>
+    <link rel="stylesheet" href="Categories.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+<body>
+<div class="dashboard">
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <span>CCMS</span>
+        </div>
+        <nav class="menu">
+            <a href="#" data-route="Admin_Dashboard.html" class="menu-item"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
+            <a href="#" data-route="Manage_Complaint.html" class="menu-item"><i class="fa-solid fa-clipboard-list"></i><span>Manage Complaints</span></a>
+            <a href="#" data-route="Categories.html" class="menu-item active"><i class="fa-solid fa-layer-group"></i><span>Categories</span></a>
+            <a href="#" data-route="Users.html" class="menu-item"><i class="fa-solid fa-users"></i><span>Users</span></a>
+            <a href="#" data-route="Reports.html" class="menu-item"><i class="fa-solid fa-chart-column"></i><span>Reports</span></a>
+            <a href="#logout" class="menu-item logout"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <div class="content-card">
+            <div class="page-heading">
+                <div>
+                    <p class="eyebrow">ADMINISTRATION</p>
+                    <h1>Categories</h1>
+                    <p class="subtitle">Organize complaints with clear categories.</p>
+                </div>
+                <div class="category-count"><strong id="category-count">0</strong><span>Active categories</span></div>
+            </div>
+
+            <form class="category-form" id="category-form">
+                <div class="field">
+                    <label for="category-name">Category name</label>
+                    <input id="category-name" name="name" type="text" placeholder="e.g. Internet" required maxlength="40">
+                </div>
+                <div class="field description-field">
+                    <label for="category-description">Description</label>
+                    <input id="category-description" name="description" type="text" placeholder="Short description" maxlength="100">
+                </div>
+                <button class="add-button" type="submit"><i class="fa-solid fa-plus"></i> Add Category</button>
+            </form>
+            <p class="form-message" id="category-message" role="status"></p>
+
+            <div class="category-list-header"><h2>All Categories</h2><span id="category-summary"></span></div>
+            <div class="category-grid" id="category-list"></div>
+        </div>
+    </main>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

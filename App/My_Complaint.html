@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCMS - My Complaints</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="My_Complaint.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span>CCMS</span>
+        </div>
+
+        <nav>
+            <a href="#" data-route="Dashboard.html">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#" data-route="Submit_Complaint.html">
+                <i class="fa-regular fa-file-lines"></i>
+                <span>Submit Complaint</span>
+            </a>
+
+            <a href="#" data-route="My_Complaint.html" class="active">
+                <i class="fa-solid fa-list-check"></i>
+                <span>My Complaints</span>
+            </a>
+
+            <a href="#" data-route="Profile.html">
+                <i class="fa-regular fa-user"></i>
+                <span>Profile</span>
+            </a>
+
+            <a href="#" data-route="Change_Password.html">
+                <i class="fa-solid fa-key"></i>
+                <span>Change Password</span>
+            </a>
+
+            <a href="#logout" class="logout">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </a>
+        </nav>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <h1>My Complaints</h1>
+
+        <div class="table-container">
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Subject</th>
+                        <th>Category</th>
+                        <th>Status</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody id="my-complaints-body"></tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCMS Dashboard</title>
+    <link rel="stylesheet" href="Dashboard.css">
+</head>
+<body>
+
+<div class="dashboard">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">◉</div>
+            <span>CCMS</span>
+        </div>
+
+        <nav>
+                <a href="#" data-route="Dashboard.html" class="active">
+                <span>⌂</span>
+                Dashboard
+            </a>
+            
+            <a href="#" data-route="Submit_Complaint.html">
+                <span>▣</span>
+                Submit Complaint
+            </a>
+
+                <a href="#" data-route="My_Complaint.html">
+                <span>▤</span>
+                My Complaints
+            </a>
+
+                <a href="#" data-route="Profile.html">
+                <span>♙</span>
+                Profile
+            </a>
+
+                <a href="#" data-route="Change_Password.html">
+                <span>⚿</span>
+                Change Password
+            </a>
+
+            <a href="#logout">
+                <span>↪</span>
+                Logout
+            </a>
+        </nav>
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main">
+
+        <!-- Header -->
+        <header class="header">
+            <h2>Welcome, <span id="student-name">Student</span> 👋</h2>
+
+            <div class="header-actions">
+                <a class="profile-icon" id="profile-section" href="#" data-route="Profile.html" title="Open profile">
+                    👤
+                </a>
+            </div>
+        </header>
+
+
+        <!-- Statistics -->
+        <section class="stats">
+
+            <div class="stat-card blue">
+                <div class="stat-icon">▣</div>
+                <div>
+                    <p>Total Complaints</p>
+                    <h3 id="total-count">0</h3>
+                </div>
+            </div>
+
+            <div class="stat-card yellow">
+                <div class="stat-icon">◉</div>
+                <div>
+                    <p>Pending</p>
+                    <h3 id="pending-count">0</h3>
+                </div>
+            </div>
+
+            <div class="stat-card purple">
+                <div class="stat-icon">▥</div>
+                <div>
+                    <p>In Progress</p>
+                    <h3 id="progress-count">0</h3>
+                </div>
+            </div>
+
+            <div class="stat-card green">
+                <div class="stat-icon">✓</div>
+                <div>
+                    <p>Resolved</p>
+                    <h3 id="resolved-count">0</h3>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- Recent Complaints -->
+        <section class="complaints" id="complaints-section">
+
+            <div class="section-header">
+                <h3>Recent Complaints</h3>
+                <button id="refresh-complaints" type="button">Refresh</button>
+            </div>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Subject</th>
+                            <th>Category</th>
+                            <th>Status</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="complaints-body"><tr><td colspan="5">Loading complaints...</td></tr></tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </main>
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
