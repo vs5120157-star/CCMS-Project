@@ -19,6 +19,7 @@ const userSchema = new mongoose.Schema({
   phone: String,
   rollNumber: String,
   role: { type: String, enum: ['Student', 'Admin'], default: 'Student' },
+  adminRegistrationComplete: { type: Boolean, default: true },
   status: { type: String, default: 'Active' }
 }, { timestamps: true });
 
@@ -72,7 +73,7 @@ function auth(requiredRole) {
 }
 
 function publicUser(user) {
-  return { id: user.id, name: user.name, email: user.email, phone: user.phone, rollNumber: user.rollNumber, role: user.role, status: user.status };
+  return { id: user.id, name: user.name, email: user.email, phone: user.phone, rollNumber: user.rollNumber, role: user.role, adminRegistrationComplete: user.adminRegistrationComplete, status: user.status };
 }
 
 app.get('/api/health', (req, res) => res.json({ ok: true, database: mongoose.connection.readyState === 1 ? 'connected' : 'disconnected' }));
@@ -90,13 +91,20 @@ app.post('/api/auth/register', async (req, res) => {
   }
 });
 
-app.post('/api/auth/register-admin', async (req, res) => {
+app.post('/api/auth/register-admin', auth('Admin'), async (req, res) => {
   try {
     const { name, email, phone, password } = req.body;
     if (!name || !email || !phone || !password || password.length < 6) return res.status(400).json({ message: 'Name, email, phone and a 6-character password are required.' });
-    const existing = await User.findOne({ email: email.toLowerCase() });
+    const existing = await User.findOne({ email: email.toLowerCase(), _id: { $ne: req.user.id } });
     if (existing) return res.status(409).json({ message: 'An account with this email already exists.' });
-    const user = await User.create({ name, email, phone, password: await bcrypt.hash(password, 10), role: 'Admin' });
+    const user = await User.findByIdAndUpdate(req.user.id, {
+      name: name.trim(),
+      email: email.toLowerCase().trim(),
+      phone: phone.trim(),
+      password: await bcrypt.hash(password, 10),
+      role: 'Admin',
+      adminRegistrationComplete: true
+    }, { new: true, runValidators: true });
     res.status(201).json({ token: createToken(user), user: publicUser(user) });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -171,9 +179,11 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/ccms')
     await Category.bulkWrite(defaultCategories.map(([name, description]) => ({ updateOne: { filter: { name }, update: { $setOnInsert: { name, description } }, upsert: true } })));
     const adminEmail = process.env.ADMIN_EMAIL || 'admin@example.com';
     const adminPassword = process.env.ADMIN_PASSWORD || 'Admin@123';
-    if (!(await User.exists({ email: adminEmail.toLowerCase(), role: 'Admin' }))) {
-      await User.create({ name: 'Administrator', email: adminEmail, password: await bcrypt.hash(adminPassword, 10), role: 'Admin' });
-    }
+    await User.findOneAndUpdate(
+      { email: adminEmail.toLowerCase(), role: 'Admin' },
+      { $set: { name: 'Administrator', password: await bcrypt.hash(adminPassword, 10), adminRegistrationComplete: false } },
+      { upsert: true, setDefaultsOnInsert: true }
+    );
     app.listen(port, () => console.log(`CCMS server running at http://localhost:${port}`));
   })
   .catch((error) => { console.error('MongoDB connection failed:', error.message); process.exit(1); });

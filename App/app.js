@@ -156,9 +156,11 @@ function navigateTo(page) {
     window.location.assign(page);
 }
 
-// Remember Me enabled ho to login page ko dobara dikhane ke bajay dashboard kholta hai.
+// Registered admin ko login page se seedha dashboard par bhejta hai.
 if (loginForm && localStorage.getItem('rdecStudentRemembered') === 'true') navigateTo('Dashboard.html');
-if (document.querySelector('#admin-login-form') && localStorage.getItem('rdecAdminRemembered') === 'true') navigateTo('Admin_Dashboard.html');
+if (document.querySelector('#admin-login-form') && localStorage.getItem('rdecAdminRemembered') === 'true') {
+    navigateTo(localStorage.getItem('rdecAdminRegistrationComplete') === 'true' ? 'Admin_Dashboard.html' : 'Admin_Register.html');
+}
 
 // data-route wale buttons/links ke liye common navigation handler.
 document.addEventListener('click', (event) => {
@@ -240,6 +242,7 @@ if (adminRegistrationForm) {
             localStorage.setItem('ccmsToken', result.token);
             localStorage.setItem('rdecAdmin', JSON.stringify(result.user));
             localStorage.setItem('rdecAdminRemembered', 'true');
+            localStorage.setItem('rdecAdminRegistrationComplete', 'true');
             navigateTo('Admin_Dashboard.html');
         } catch (error) {
             message.textContent = error.message;

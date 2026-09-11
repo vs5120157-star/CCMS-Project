@@ -21,8 +21,8 @@
 		<div class="form-wrapper">
 			<h2>Admin Login</h2>
 			<form id="admin-login-form">
-				<div class="form-group"><label for="admin-email">Email</label><input id="admin-email" name="email" type="email" placeholder="Enter admin email" required></div>
-				<div class="form-group"><label for="admin-password">Password</label><div class="password-box"><input id="admin-password" name="password" type="password" placeholder="Enter password" required><button type="button" id="eye" class="password-toggle" aria-label="Show password"><i class="fa-solid fa-eye"></i></button></div></div>
+				<div class="form-group"><label for="admin-email">Email</label><input id="admin-email" name="email" type="email" value="admin@example.com" placeholder="Enter admin email" required></div>
+				<div class="form-group"><label for="admin-password">Password</label><div class="password-box"><input id="admin-password" name="password" type="password" value="Admin@123" placeholder="Enter password" required><button type="button" id="eye" class="password-toggle" aria-label="Show password"><i class="fa-solid fa-eye"></i></button></div></div>
 				<div class="options"><label class="remember"><input type="checkbox" id="admin-remember-me" name="rememberMe"><span>Remember me</span></label><a href="#">Forgot Password?</a></div>
 				<button class="login-btn" type="submit">Login as Admin</button>
 			</form>
@@ -51,7 +51,9 @@
 			localStorage.setItem('ccmsToken', result.token);
 			localStorage.setItem('rdecAdmin', JSON.stringify(result.user));
 			localStorage.setItem('rdecAdminRemembered', String(rememberMe));
-			navigateTo('Admin_Dashboard.html');
+			const registrationComplete = result.user.adminRegistrationComplete === true;
+			localStorage.setItem('rdecAdminRegistrationComplete', String(registrationComplete));
+			navigateTo(registrationComplete ? 'Admin_Dashboard.html' : 'Admin_Register.html');
 		} catch (error) {
 			document.getElementById('form-message').textContent = error.message;
 		}
