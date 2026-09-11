@@ -289,6 +289,18 @@ HERO
     background: #f1f5fa;
 }
 
+.student-register-btn {
+    color: white;
+    background: #0967df;
+    border-color: #0967df;
+}
+
+.student-register-btn:hover {
+    color: white;
+    background: #0757be;
+    border-color: #0757be;
+}
+
 .admin-register-btn {
     height: 27px;
     padding: 0 13px;

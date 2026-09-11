@@ -81,10 +81,13 @@ app.get('/api/health', (req, res) => res.json({ ok: true, database: mongoose.con
 app.post('/api/auth/register', async (req, res) => {
   try {
     const { fullName, email, phone, rollNumber, password } = req.body;
-    if (!fullName || !email || !phone || !rollNumber || !password) return res.status(400).json({ message: 'All fields are required.' });
-    const existing = await User.findOne({ email: email.toLowerCase() });
+    const normalizedEmail = email?.trim().toLowerCase();
+    if (!fullName?.trim() || !normalizedEmail || !phone?.trim() || !rollNumber?.trim() || !password || password.length < 6) {
+      return res.status(400).json({ message: 'Name, email, phone, roll number and a 6-character password are required.' });
+    }
+    const existing = await User.findOne({ email: normalizedEmail });
     if (existing) return res.status(409).json({ message: 'An account with this email already exists.' });
-    const user = await User.create({ name: fullName, email, phone, rollNumber, password: await bcrypt.hash(password, 10) });
+    const user = await User.create({ name: fullName.trim(), email: normalizedEmail, phone: phone.trim(), rollNumber: rollNumber.trim(), password: await bcrypt.hash(password, 10), role: 'Student' });
     res.status(201).json({ token: createToken(user), user: publicUser(user) });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -114,8 +117,16 @@ app.post('/api/auth/register-admin', auth('Admin'), async (req, res) => {
 app.post('/api/auth/login', async (req, res) => {
   try {
     const { email, password, role = 'Student' } = req.body;
-    const user = await User.findOne({ email: email?.toLowerCase(), role });
-    if (!user || !(await bcrypt.compare(password || '', user.password))) return res.status(401).json({ message: 'Invalid email or password.' });
+    const user = await User.findOne({ email: email?.trim().toLowerCase(), role })
+      .sort({ ...(role === 'Admin' ? { adminRegistrationComplete: -1 } : {}), updatedAt: -1, createdAt: -1 });
+    const passwordValue = password || '';
+    const bcryptMatch = user && await bcrypt.compare(passwordValue, user.password);
+    const legacyMatch = user && !bcryptMatch && user.password === passwordValue;
+    if (!user || (!bcryptMatch && !legacyMatch)) return res.status(401).json({ message: 'Invalid email or password.' });
+    if (legacyMatch) {
+      user.password = await bcrypt.hash(passwordValue, 10);
+      await user.save();
+    }
     res.json({ token: createToken(user), user: publicUser(user) });
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -184,6 +195,13 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/ccms')
       { $set: { name: 'Administrator', password: await bcrypt.hash(adminPassword, 10), adminRegistrationComplete: false } },
       { upsert: true, setDefaultsOnInsert: true }
     );
-    app.listen(port, () => console.log(`CCMS server running at http://localhost:${port}`));
+    const server = app.listen(port, () => console.log(`CCMS server running at http://localhost:${port}`));
+    server.on('error', (error) => {
+      if (error.code === 'EADDRINUSE') {
+        console.log(`CCMS backend is already running at http://localhost:${port}`);
+        return;
+      }
+      console.error('Could not start CCMS backend:', error.message);
+    });
   })
   .catch((error) => { console.error('MongoDB connection failed:', error.message); process.exit(1); });

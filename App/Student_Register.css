@@ -1,0 +1,11 @@
+.student-register-btn {
+    color: white;
+    background: #0967df;
+    border-color: #0967df;
+}
+
+.student-register-btn:hover {
+    color: white;
+    background: #0757be;
+    border-color: #0757be;
+}
