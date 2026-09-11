@@ -62,6 +62,7 @@ nav a.active {
 }
 .student-btn,
 .admin-btn {
+  height: 27px;
   min-height: 27px;
   display: inline-flex;
   align-items: center;

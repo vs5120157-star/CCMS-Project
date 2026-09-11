@@ -112,6 +112,9 @@ nav a:hover {
 }
 
 .student-btn {
+  height: 27px;
+  padding: 0 13px;
+
   background: transparent;
 
   border: 1px solid #6682aa;
