@@ -1,0 +1,14 @@
+{
+  "application": "ccms-backend",
+  "database": {
+    "driver": "MongoDB",
+    "odm": "mongoose",
+    "databaseName": "ccms",
+    "defaultUri": "mongodb://127.0.0.1:27017/ccms"
+  },
+  "dependencies": {
+    "mongoose": "^8.7.2",
+    "dotenv": "^16.4.5",
+    "bcryptjs": "^2.4.3"
+  }
+}

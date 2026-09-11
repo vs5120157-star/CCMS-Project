@@ -1,0 +1,58 @@
+{
+  "database": "ccms",
+  "exportedAt": "2026-09-12T00:00:00.000Z",
+  "collections": {
+    "users": [],
+    "complaints": [],
+    "categories": [
+      {
+        "name": "Internet",
+        "description": "Network and connectivity issues."
+      },
+      {
+        "name": "Infrastructure",
+        "description": "Campus buildings and facilities."
+      },
+      {
+        "name": "Cleanliness",
+        "description": "Hygiene and sanitation concerns."
+      },
+      {
+        "name": "Academic",
+        "description": "Classes, exams, and academic services."
+      },
+      {
+        "name": "Fee Related",
+        "description": "Tuition, payment, and scholarship fee issues."
+      },
+      {
+        "name": "Hostel",
+        "description": "Accommodation and hostel facilities."
+      },
+      {
+        "name": "Transport",
+        "description": "Bus and campus transport services."
+      },
+      {
+        "name": "Technical",
+        "description": "Technical support and system issues."
+      },
+      {
+        "name": "Medical",
+        "description": "Health and medical assistance."
+      },
+      {
+        "name": "Scholarship",
+        "description": "Scholarship and financial aid concerns."
+      },
+      {
+        "name": "Security",
+        "description": "Safety and security concerns."
+      },
+      {
+        "name": "Other",
+        "description": "Other college-related concerns."
+      }
+    ]
+  }
+}
