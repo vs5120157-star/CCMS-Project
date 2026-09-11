@@ -1,133 +1,120 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CCMS - Manage Complaints</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="Manage_Complaint.css">
+    <link rel="stylesheet" href="Manage_Complaint.css" />
 
     <!-- Icons -->
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
 
-<body>
-
-<div class="dashboard">
-
-    <!-- ================= SIDEBAR ================= -->
-    <aside class="sidebar">
-
+  <body>
+    <div class="dashboard">
+      <!-- ================= SIDEBAR ================= -->
+      <aside class="sidebar">
         <div class="logo">
-            <div class="logo-icon">
-                <i class="fa-solid fa-shield-halved"></i>
-            </div>
-            <span>CCMS</span>
+          <div class="logo-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <span>CCMS</span>
         </div>
 
         <nav class="menu">
+          <a href="#" data-route="Admin_Dashboard.html" class="menu-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Dashboard</span>
+          </a>
 
-            <a href="#" data-route="Admin_Dashboard.html" class="menu-item">
-                <i class="fa-solid fa-house"></i>
-                <span>Dashboard</span>
-            </a>
+          <a
+            href="#"
+            data-route="Manage_Complaint.html"
+            class="menu-item active"
+          >
+            <i class="fa-solid fa-clipboard-list"></i>
+            <span>Manage Complaints</span>
+          </a>
 
-            <a href="#" data-route="Manage_Complaint.html" class="menu-item active">
-                <i class="fa-solid fa-clipboard-list"></i>
-                <span>Manage Complaints</span>
-            </a>
+          <a href="#" data-route="Categories.html" class="menu-item">
+            <i class="fa-solid fa-layer-group"></i>
+            <span>Categories</span>
+          </a>
 
-            <a href="#" data-route="Categories.html" class="menu-item">
-                <i class="fa-solid fa-layer-group"></i>
-                <span>Categories</span>
-            </a>
+          <a href="#" data-route="Users.html" class="menu-item">
+            <i class="fa-solid fa-users"></i>
+            <span>Users</span>
+          </a>
 
-            <a href="#" data-route="Users.html" class="menu-item">
-                <i class="fa-solid fa-users"></i>
-                <span>Users</span>
-            </a>
+          <a href="#" data-route="Reports.html" class="menu-item">
+            <i class="fa-solid fa-chart-column"></i>
+            <span>Reports</span>
+          </a>
 
-            <a href="#" data-route="Reports.html" class="menu-item">
-                <i class="fa-solid fa-chart-column"></i>
-                <span>Reports</span>
-            </a>
-
-            <a href="#logout" class="menu-item logout">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <span>Logout</span>
-            </a>
-
+          <a href="#logout" class="menu-item logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <span>Logout</span>
+          </a>
         </nav>
+      </aside>
 
-    </aside>
-
-
-    <!-- ================= MAIN CONTENT ================= -->
-    <main class="main-content">
-
+      <!-- ================= MAIN CONTENT ================= -->
+      <main class="main-content">
         <div class="content-card">
+          <h1>Manage Complaints</h1>
 
-            <h1>Manage Complaints</h1>
+          <!-- Search / Filters -->
+          <div class="filter-section">
+            <input
+              type="text"
+              class="search-input"
+              id="manage-search"
+              placeholder="Search..."
+            />
 
-            <!-- Search / Filters -->
-            <div class="filter-section">
+            <select id="manage-status-filter">
+              <option value="All">Select Status</option>
+              <option>Pending</option>
+              <option>In Progress</option>
+              <option>Resolved</option>
+            </select>
 
-                <input
-                    type="text"
-                    class="search-input"
-                    id="manage-search"
-                    placeholder="Search..."
-                >
+            <select id="manage-category-filter" data-category-select>
+              <option value="All">Select Category</option>
+            </select>
 
-                <select id="manage-status-filter">
-                    <option value="All">Select Status</option>
-                    <option>Pending</option>
-                    <option>In Progress</option>
-                    <option>Resolved</option>
-                </select>
+            <button class="search-btn" id="manage-search-button" type="button">
+              Search
+            </button>
+          </div>
 
-                <select id="manage-category-filter" data-category-select>
-                    <option value="All">Select Category</option>
-                </select>
+          <!-- Complaints Table -->
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Subject</th>
+                  <th>Student</th>
+                  <th>Category</th>
+                  <th>Status</th>
+                  <th>Date</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
 
-                <button class="search-btn" id="manage-search-button" type="button">
-                    Search
-                </button>
-
-            </div>
-
-
-            <!-- Complaints Table -->
-            <div class="table-container">
-
-                <table>
-
-                    <thead>
-                        <tr>
-                            <th>#</th>
-                            <th>Subject</th>
-                            <th>Student</th>
-                            <th>Category</th>
-                            <th>Status</th>
-                            <th>Date</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-
-                    <tbody id="manage-complaints-body"></tbody>
-
-                </table>
-
-            </div>
-
+              <tbody id="manage-complaints-body"></tbody>
+            </table>
+          </div>
         </div>
+      </main>
+    </div>
 
-    </main>
-
-</div>
-
-<script src="app.js"></script>
-</body>
+    <script src="app.js"></script>
+  </body>
 </html>

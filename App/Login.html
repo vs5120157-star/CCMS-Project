@@ -1,149 +1,141 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CCMS Student Login</title>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="Login.css">
+    <link rel="stylesheet" href="Login.css" />
 
     <!-- Font Awesome for eye icon -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</head>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
 
-<body>
-
-<div class="login-container">
-
-    <!-- Left Section -->
-    <div class="welcome-section">
-
+  <body>
+    <div class="login-container">
+      <!-- Left Section -->
+      <div class="welcome-section">
         <div class="logo">
-            <div class="logo-icon">
-                <i class="fa-solid fa-shield-halved"></i>
-            </div>
-            <span>CCMS</span>
+          <div class="logo-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <span>CCMS</span>
         </div>
 
         <div class="welcome-content">
-            <h1>Welcome Back!</h1>
+          <h1>Welcome Back!</h1>
 
-            <p>
-                Login to your account and<br>
-                raise your voice.
-            </p>
+          <p>
+            Login to your account and<br />
+            raise your voice.
+          </p>
 
-            <div class="student-image">
-                <img src="Student.png" alt="Student with a laptop">
-            </div>
+          <div class="student-image">
+            <img src="Student.png" alt="Student with a laptop" />
+          </div>
         </div>
+      </div>
 
-    </div>
-
-
-    <!-- Right Section -->
-    <div class="form-section">
-
+      <!-- Right Section -->
+      <div class="form-section">
         <div class="form-wrapper">
+          <h2>Student Login</h2>
 
-            <h2>Student Login</h2>
+          <form id="login-form">
+            <!-- Email -->
+            <div class="form-group">
+              <label for="email">Email</label>
 
-            <form id="login-form">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                placeholder="Enter email"
+                required
+              />
+            </div>
 
-                <!-- Email -->
-                <div class="form-group">
-                    <label for="email">Email</label>
+            <!-- Password -->
+            <div class="form-group">
+              <label for="password">Password</label>
 
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        autocomplete="email"
-                        placeholder="Enter email"
-                        required
-                    >
-                </div>
+              <div class="password-box">
+                <input
+                  type="password"
+                  name="password"
+                  autocomplete="current-password"
+                  id="password"
+                  placeholder="Enter password"
+                  required
+                />
 
+                <i
+                  class="fa-regular fa-eye password-toggle"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Show password"
+                ></i>
+              </div>
+            </div>
 
-                <!-- Password -->
-                <div class="form-group">
-                    <label for="password">Password</label>
+            <!-- Remember + Forgot -->
+            <div class="options">
+              <label class="remember">
+                <input type="checkbox" id="remember-me" name="rememberMe" />
+                <span>Remember me</span>
+              </label>
 
-                    <div class="password-box">
-                        <input
-                            type="password"
-                            name="password"
-                            autocomplete="current-password"
-                            id="password"
-                            placeholder="Enter password"
-                            required
-                        >
+              <a href="#">Forgot Password?</a>
+            </div>
 
-                        <i class="fa-regular fa-eye password-toggle" role="button" tabindex="0" aria-label="Show password"></i>
-                    </div>
-                </div>
+            <!-- Login Button -->
+            <button type="submit" class="login-btn">Login</button>
+          </form>
 
+          <p id="form-message" role="alert"></p>
 
-                <!-- Remember + Forgot -->
-                <div class="options">
-
-                    <label class="remember">
-                        <input type="checkbox" id="remember-me" name="rememberMe">
-                        <span>Remember me</span>
-                    </label>
-
-                    <a href="#">Forgot Password?</a>
-
-                </div>
-
-
-                <!-- Login Button -->
-                <button type="submit" class="login-btn">
-                    Login
-                </button>
-
-            </form>
-
-            <p id="form-message" role="alert"></p>
-
-
-            <!-- Register -->
-            <p class="register">
-                Don't have an account?
-                <a href="#" data-route="Registration.html">Register here</a>
-            </p>
-
+          <!-- Register -->
+          <p class="register">
+            Don't have an account?
+            <a href="#" data-route="Registration.html">Register here</a>
+          </p>
         </div>
-
+      </div>
     </div>
 
-</div>
+    <script>
+      const message = new URLSearchParams(window.location.search).get(
+        "message",
+      );
+      if (message)
+        document.getElementById("form-message").textContent = message;
 
-<script>
-    const message = new URLSearchParams(window.location.search).get('message');
-    if (message) document.getElementById('form-message').textContent = message;
-
-    document.querySelectorAll('.password-toggle').forEach((toggle) => {
+      document.querySelectorAll(".password-toggle").forEach((toggle) => {
         const password = toggle.previousElementSibling;
         const changeVisibility = () => {
-            const isHidden = password.type === 'password';
-            password.type = isHidden ? 'text' : 'password';
-            toggle.classList.toggle('fa-eye', !isHidden);
-            toggle.classList.toggle('fa-eye-slash', isHidden);
-            toggle.setAttribute('aria-label', isHidden ? 'Hide password' : 'Show password');
+          const isHidden = password.type === "password";
+          password.type = isHidden ? "text" : "password";
+          toggle.classList.toggle("fa-eye", !isHidden);
+          toggle.classList.toggle("fa-eye-slash", isHidden);
+          toggle.setAttribute(
+            "aria-label",
+            isHidden ? "Hide password" : "Show password",
+          );
         };
-        toggle.addEventListener('click', changeVisibility);
-        toggle.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                changeVisibility();
-            }
+        toggle.addEventListener("click", changeVisibility);
+        toggle.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            changeVisibility();
+          }
         });
-    });
-</script>
-<script src="app.js"></script>
-
-</body>
+      });
+    </script>
+    <script src="app.js"></script>
+  </body>
 </html>

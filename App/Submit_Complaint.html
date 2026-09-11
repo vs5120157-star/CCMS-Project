@@ -1,23 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CCMS - Submit Complaint</title>
-    <link rel="stylesheet" href="Submit_Complaint.css">
-</head>
-<body>
-
-<div class="layout">
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-
+    <link rel="stylesheet" href="Submit_Complaint.css" />
+  </head>
+  <body>
+    <div class="layout">
+      <!-- Sidebar -->
+      <div class="sidebar">
         <h2>◉ CCMS</h2>
 
         <a href="#" data-route="Dashboard.html">⌂ Dashboard</a>
 
-        <a href="#" data-route="Submit_Complaint.html" class="active">▣ Submit Complaint</a>
+        <a href="#" data-route="Submit_Complaint.html" class="active"
+          >▣ Submit Complaint</a
+        >
 
         <a href="#" data-route="My_Complaint.html">☷ My Complaints</a>
 
@@ -26,67 +25,52 @@
         <a href="#" data-route="Change_Password.html">⚙ Change Password</a>
 
         <a href="#logout">↪ Logout</a>
+      </div>
 
-    </div>
-
-
-    <!-- Main Content -->
-    <div class="main">
-
+      <!-- Main Content -->
+      <div class="main">
         <div class="card">
+          <h1>Submit New Complaint</h1>
 
-            <h1>Submit New Complaint</h1>
+          <form id="complaint-submit-form">
+            <label>Category</label>
 
-            <form id="complaint-submit-form">
+            <select name="category" data-category-select required>
+              <option value="" disabled selected>Select Category</option>
+              <option>Academic</option>
+              <option>Fee Related</option>
+              <option>Hostel</option>
+              <option>Transport</option>
+              <option>Technical</option>
+              <option>Medical</option>
+              <option>Scholarship</option>
+              <option>Security</option>
+              <option>Other</option>
+            </select>
 
-                <label>Category</label>
+            <label>Subject</label>
 
-                <select name="category" data-category-select required>
-                    <option value="" disabled selected>
-                        Select Category
-                    </option>
-                    <option>Academic</option>
-                    <option>Fee Related</option>
-                    <option>Hostel</option>
-                    <option>Transport</option>
-                    <option>Technical</option>
-                    <option>Medical</option>
-                    <option>Scholarship</option>
-                    <option>Security</option>
-                    <option>Other</option>
-                </select>
+            <input
+              name="subject"
+              type="text"
+              placeholder="Enter subject"
+              required
+            />
 
+            <label>Description</label>
 
-                <label>Subject</label>
+            <textarea
+              name="description"
+              placeholder="Write your complaint in detail..."
+              required
+            ></textarea>
 
-                <input name="subject"
-                    type="text"
-                    placeholder="Enter subject"
-                    required
-                >
-
-
-                <label>Description</label>
-
-                <textarea name="description"
-                    placeholder="Write your complaint in detail..."
-                    required
-                ></textarea>
-
-
-                <button type="submit">
-                    Submit Complaint
-                </button>
-
-            </form>
-
+            <button type="submit">Submit Complaint</button>
+          </form>
         </div>
-
+      </div>
     </div>
 
-</div>
-
-<script src="app.js"></script>
-
-</body>
+    <script src="app.js"></script>
+  </body>
 </html>

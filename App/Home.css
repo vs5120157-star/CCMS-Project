@@ -3,781 +3,754 @@ RESET
 ================================ */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f7f9fd;
-    color: #111d32;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f7f9fd;
+  color: #111d32;
 }
-
 
 /* ===============================
 NAVBAR
 ================================ */
 
 .navbar {
-    width: 100%;
-    height: 50px;
+  width: 100%;
+  height: 50px;
 
-    background: linear-gradient(
-        90deg,
-        #061c43,
-        #0b2c62
-    );
+  background: linear-gradient(90deg, #061c43, #0b2c62);
 
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    padding: 0 25px;
+  padding: 0 25px;
 
-    color: white;
+  color: white;
 
-    box-shadow: 0 2px 6px rgba(0, 0, 0, .2);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
-
 
 /* Logo */
 
 .logo {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    gap: 7px;
+  gap: 7px;
 
-    font-size: 15px;
-    font-weight: bold;
+  font-size: 15px;
+  font-weight: bold;
 
-    width: 240px;
+  width: 240px;
 }
 
 .logo-icon {
-    width: 22px;
-    height: 22px;
+  width: 22px;
+  height: 22px;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-    background: #eaf2ff;
+  background: #eaf2ff;
 
-    border-radius: 4px;
+  border-radius: 4px;
 
-    font-size: 13px;
+  font-size: 13px;
 }
-
 
 /* Navigation */
 
 nav {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 
-    gap: 20px;
+  gap: 20px;
 
-    flex: 1;
+  flex: 1;
 
-    justify-content: center;
+  justify-content: center;
 }
 
 nav a {
-    color: white;
+  color: white;
 
-    text-decoration: none;
+  text-decoration: none;
 
-    font-size: 9px;
+  font-size: 9px;
 
-    transition: .2s;
+  transition: 0.2s;
 }
 
 nav a:hover {
-    color: #53a0ff;
+  color: #53a0ff;
 }
-
 
 /* Navbar Buttons */
 
 .nav-buttons {
-    display: flex;
-    gap: 8px;
+  display: flex;
+  gap: 8px;
 }
 
 .nav-buttons button {
-    height: 27px;
+  height: 27px;
 
-    padding: 0 13px;
+  padding: 0 13px;
 
-    border-radius: 4px;
+  border-radius: 4px;
 
-    font-size: 9px;
+  font-size: 9px;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    color: white;
+  color: white;
 }
 
 .student-btn {
-    background: transparent;
+  background: transparent;
 
-    border: 1px solid #6682aa;
+  border: 1px solid #6682aa;
 
-    color: white;
+  color: white;
 
-    font-size: 9px;
-    line-height: 1;
+  font-size: 9px;
+  line-height: 1;
 
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
 }
 
 .student-btn:hover {
-    background: #164889;
+  background: #164889;
 }
 
 .admin-btn {
-    height: 27px;
-    padding: 0 13px;
+  height: 27px;
+  padding: 0 13px;
 
-    background: #0965dd;
+  background: #0965dd;
 
-    border: 1px solid #1475ef;
+  border: 1px solid #1475ef;
 
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
-    font-size: 13px;
-    line-height: 1;
-    color: white;
-    border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 1;
+  color: white;
+  border-radius: 4px;
 }
 
 .admin-btn:hover {
-    background: #0755ba;
+  background: #0755ba;
 }
-
 
 /* ===============================
 HERO
 ================================ */
 
 .hero {
-    width: min(1200px, calc(100% - 48px));
+  width: min(1200px, calc(100% - 48px));
 
-    max-width: 1200px;
+  max-width: 1200px;
 
-    min-height: calc(100vh - 70px);
+  min-height: calc(100vh - 70px);
 
-    margin: 10px auto 0;
+  margin: 10px auto 0;
 
-    background: #ffffff;
+  background: #ffffff;
 
-    border-radius: 6px;
+  border-radius: 6px;
 
-    display: flex;
+  display: flex;
 
-    align-items: center;
+  align-items: center;
 
-    padding: 30px;
+  padding: 30px;
 
-    box-shadow:
-        0 1px 5px rgba(0, 0, 0, .08);
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
 
-    border: 1px solid #e9edf4;
+  border: 1px solid #e9edf4;
 }
-
 
 /* ===============================
    HERO TEXT
 ================================ */
 
 .hero-content {
-    width: 52%;
+  width: 52%;
 
-    padding-left: 10px;
+  padding-left: 10px;
 }
 
 .hero-content h1 {
-    font-size: 31px;
+  font-size: 31px;
 
-    line-height: 1.08;
+  line-height: 1.08;
 
-    font-weight: 700;
+  font-weight: 700;
 
-    color: #111d32;
+  color: #111d32;
 
-    letter-spacing: -1px;
+  letter-spacing: -1px;
 }
 
 .hero-content h1 span {
-    color: #1266dc;
+  color: #1266dc;
 }
 
 .hero-content p {
-    width: 350px;
+  width: 350px;
 
-    margin-top: 14px;
+  margin-top: 14px;
 
-    font-size: 10px;
+  font-size: 10px;
 
-    line-height: 1.45;
+  line-height: 1.45;
 
-    color: #333d4b;
+  color: #333d4b;
 }
-
 
 /* Hero Buttons */
 
 .hero-buttons {
-    display: flex;
+  display: flex;
 
-    gap: 10px;
+  gap: 10px;
 
-    margin-top: 14px;
+  margin-top: 14px;
 }
 
 .primary-btn,
 .secondary-btn {
-    height: 28px;
+  height: 28px;
 
-    padding: 0 15px;
+  padding: 0 15px;
 
-    border-radius: 4px;
+  border-radius: 4px;
 
-    font-size: 9px;
+  font-size: 9px;
 
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .primary-btn {
-    background: #0967df;
+  background: #0967df;
 
-    border: 1px solid #0967df;
+  border: 1px solid #0967df;
 
-    color: white;
+  color: white;
 
-    font-size: 13px;
-    line-height: 1;
+  font-size: 13px;
+  line-height: 1;
 
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
 
-    box-shadow: 0 2px 4px rgba(0, 90, 200, .2);
+  box-shadow: 0 2px 4px rgba(0, 90, 200, 0.2);
 }
 
 .primary-btn:hover {
-    background: #0757be;
+  background: #0757be;
 }
 
 .secondary-btn {
-    background: white;
+  background: white;
 
-    color: #202b3b;
+  color: #202b3b;
 
-    border: 1px solid #cfd5dd;
+  border: 1px solid #cfd5dd;
 
-    display: inline-flex;
-    align-items: center;
-    text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
 }
 
 .secondary-btn:hover {
-    background: #f1f5fa;
+  background: #f1f5fa;
 }
 
 .student-register-btn {
-    color: white;
-    background: #0967df;
-    border-color: #0967df;
+  color: white;
+  background: #0967df;
+  border-color: #0967df;
 }
 
 .student-register-btn:hover {
-    color: white;
-    background: #0757be;
-    border-color: #0757be;
+  color: white;
+  background: #0757be;
+  border-color: #0757be;
 }
 
 .admin-register-btn {
-    height: 27px;
-    padding: 0 13px;
-    display: inline-flex;
-    align-items: center;
-    border: 1px solid #3b86ee;
-    border-radius: 4px;
-    color: #dceaff;
-    background: transparent;
-    font-size: 9px;
-    line-height: 1;
-    text-decoration: none;
+  height: 27px;
+  padding: 0 13px;
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #3b86ee;
+  border-radius: 4px;
+  color: #dceaff;
+  background: transparent;
+  font-size: 9px;
+  line-height: 1;
+  text-decoration: none;
 }
 
-.admin-register-btn:hover { color: white; background: #164889; }
+.admin-register-btn:hover {
+  color: white;
+  background: #164889;
+}
 
 .admin-register-link {
-    display: inline-flex;
-    align-items: center;
-    height: 28px;
-    padding: 0 15px;
-    border: 1px solid #1764e8;
-    border-radius: 4px;
-    color: #1764e8;
-    font-size: 9px;
-    text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  height: 28px;
+  padding: 0 15px;
+  border: 1px solid #1764e8;
+  border-radius: 4px;
+  color: #1764e8;
+  font-size: 9px;
+  text-decoration: none;
 }
 
-.admin-register-link:hover { color: white; background: #1764e8; }
-
+.admin-register-link:hover {
+  color: white;
+  background: #1764e8;
+}
 
 /* ===============================
    HERO ILLUSTRATION
 ================================ */
 
 .hero-image {
-    width: 48%;
+  width: 48%;
 
-    height: min(480px, calc(100vh - 140px));
+  height: min(480px, calc(100vh - 140px));
 
-    position: relative;
+  position: relative;
 }
 
 .hero-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
 }
-
 
 /* Background circle */
 
 .circle {
-    position: absolute;
+  position: absolute;
 
-    width: 200px;
-    height: 180px;
+  width: 200px;
+  height: 180px;
 
-    right: 20px;
-    top: 25px;
+  right: 20px;
+  top: 25px;
 
-    background: #edf3ff;
+  background: #edf3ff;
 
-    border-radius: 50%;
+  border-radius: 50%;
 }
-
 
 /* College building */
 
 .building {
-    position: absolute;
+  position: absolute;
 
-    right: 105px;
-    top: 82px;
+  right: 105px;
+  top: 82px;
 
-    width: 65px;
-    height: 55px;
+  width: 65px;
+  height: 55px;
 
-    background: #c8d9ff;
+  background: #c8d9ff;
 
-    border-radius: 50%;
+  border-radius: 50%;
 
-    display: flex;
+  display: flex;
 
-    align-items: center;
-    justify-content: center;
+  align-items: center;
+  justify-content: center;
 
-    font-size: 30px;
+  font-size: 30px;
 }
-
 
 /* Exclamation */
 
 .notification {
-    position: absolute;
+  position: absolute;
 
-    right: 70px;
-    top: 17px;
+  right: 70px;
+  top: 17px;
 
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
 
-    border-radius: 50%;
+  border-radius: 50%;
 
-    background: #7245c8;
+  background: #7245c8;
 
-    color: white;
+  color: white;
 
-    font-size: 28px;
-    font-weight: bold;
+  font-size: 28px;
+  font-weight: bold;
 
-    text-align: center;
+  text-align: center;
 
-    line-height: 40px;
+  line-height: 40px;
 }
-
 
 /* Chat */
 
 .chat {
-    position: absolute;
+  position: absolute;
 
-    right: 12px;
-    top: 55px;
+  right: 12px;
+  top: 55px;
 
-    width: 45px;
-    height: 38px;
+  width: 45px;
+  height: 38px;
 
-    background: #0968dd;
+  background: #0968dd;
 
-    border-radius: 5px;
+  border-radius: 5px;
 }
 
 .chat::after {
-    content: "";
+  content: "";
 
-    position: absolute;
+  position: absolute;
 
-    bottom: -6px;
-    left: 7px;
+  bottom: -6px;
+  left: 7px;
 
-    border-width: 6px 6px 0 0;
-    border-style: solid;
+  border-width: 6px 6px 0 0;
+  border-style: solid;
 
-    border-color: #0968dd transparent transparent transparent;
+  border-color: #0968dd transparent transparent transparent;
 }
 
 .chat span {
-    display: block;
+  display: block;
 
-    width: 23px;
-    height: 3px;
+  width: 23px;
+  height: 3px;
 
-    margin: 6px auto;
+  margin: 6px auto;
 
-    background: white;
+  background: white;
 
-    border-radius: 5px;
+  border-radius: 5px;
 }
-
 
 /* ===============================
    PERSON
 ================================ */
 
 .person {
-    position: absolute;
+  position: absolute;
 
-    right: 52px;
-    bottom: 28px;
+  right: 52px;
+  bottom: 28px;
 
-    width: 100px;
-    height: 135px;
+  width: 100px;
+  height: 135px;
 }
-
 
 /* Hair */
 
 .hair {
-    position: absolute;
+  position: absolute;
 
-    top: 8px;
-    left: 30px;
+  top: 8px;
+  left: 30px;
 
-    width: 48px;
-    height: 35px;
+  width: 48px;
+  height: 35px;
 
-    background: #071a36;
+  background: #071a36;
 
-    border-radius: 55% 50% 30% 20%;
+  border-radius: 55% 50% 30% 20%;
 }
-
 
 /* Face */
 
 .face {
-    position: absolute;
+  position: absolute;
 
-    top: 25px;
-    left: 34px;
+  top: 25px;
+  left: 34px;
 
-    width: 42px;
-    height: 48px;
+  width: 42px;
+  height: 48px;
 
-    background: #f0a26e;
+  background: #f0a26e;
 
-    border-radius: 45% 45% 45% 45%;
+  border-radius: 45% 45% 45% 45%;
 }
-
 
 /* Eyes */
 
 .eye {
-    position: absolute;
+  position: absolute;
 
-    top: 20px;
+  top: 20px;
 
-    width: 4px;
-    height: 4px;
+  width: 4px;
+  height: 4px;
 
-    background: #182235;
+  background: #182235;
 
-    border-radius: 50%;
+  border-radius: 50%;
 }
 
 .eye.left {
-    left: 10px;
+  left: 10px;
 }
 
 .eye.right {
-    right: 10px;
+  right: 10px;
 }
-
 
 /* Mouth */
 
 .mouth {
-    position: absolute;
+  position: absolute;
 
-    width: 10px;
-    height: 5px;
+  width: 10px;
+  height: 5px;
 
-    left: 16px;
-    top: 31px;
+  left: 16px;
+  top: 31px;
 
-    border-bottom: 2px solid #a34639;
+  border-bottom: 2px solid #a34639;
 
-    border-radius: 50%;
+  border-radius: 50%;
 }
-
 
 /* Neck */
 
 .neck {
-    position: absolute;
+  position: absolute;
 
-    top: 67px;
-    left: 47px;
+  top: 67px;
+  left: 47px;
 
-    width: 18px;
-    height: 18px;
+  width: 18px;
+  height: 18px;
 
-    background: #e89563;
+  background: #e89563;
 }
-
 
 /* Shirt */
 
 .shirt {
-    position: absolute;
+  position: absolute;
 
-    bottom: 0;
-    left: 15px;
+  bottom: 0;
+  left: 15px;
 
-    width: 85px;
-    height: 75px;
+  width: 85px;
+  height: 75px;
 
-    background: #0963d5;
+  background: #0963d5;
 
-    border-radius: 35px 35px 8px 8px;
+  border-radius: 35px 35px 8px 8px;
 }
-
 
 /* Arm */
 
 .arm {
-    position: absolute;
+  position: absolute;
 
-    bottom: 18px;
-    left: 7px;
+  bottom: 18px;
+  left: 7px;
 
-    width: 65px;
-    height: 20px;
+  width: 65px;
+  height: 20px;
 
-    background: #f0a26e;
+  background: #f0a26e;
 
-    border-radius: 20px;
+  border-radius: 20px;
 
-    transform: rotate(-12deg);
+  transform: rotate(-12deg);
 }
-
 
 /* ===============================
    LAPTOP
 ================================ */
 
 .laptop {
-    position: absolute;
+  position: absolute;
 
-    bottom: 28px;
-    left: 90px;
+  bottom: 28px;
+  left: 90px;
 
-    width: 115px;
-    height: 75px;
+  width: 115px;
+  height: 75px;
 
-    z-index: 5;
+  z-index: 5;
 }
 
 .screen {
-    width: 100px;
-    height: 58px;
+  width: 100px;
+  height: 58px;
 
-    background: #263c5c;
+  background: #263c5c;
 
-    border: 4px solid #182b47;
+  border: 4px solid #182b47;
 
-    border-radius: 4px;
+  border-radius: 4px;
 
-    transform: skew(-5deg);
+  transform: skew(-5deg);
 }
 
 .laptop-dot {
-    width: 6px;
-    height: 6px;
+  width: 6px;
+  height: 6px;
 
-    background: #66809f;
+  background: #66809f;
 
-    border-radius: 50%;
+  border-radius: 50%;
 
-    margin: 24px auto;
+  margin: 24px auto;
 }
 
 .keyboard {
-    position: absolute;
+  position: absolute;
 
-    bottom: 0;
-    left: -8px;
+  bottom: 0;
+  left: -8px;
 
-    width: 120px;
-    height: 10px;
+  width: 120px;
+  height: 10px;
 
-    background: #162b47;
+  background: #162b47;
 
-    transform: skew(-20deg);
+  transform: skew(-20deg);
 
-    border-radius: 2px;
+  border-radius: 2px;
 }
-
 
 /* ===============================
    PLANT
 ================================ */
 
 .plant {
-    position: absolute;
+  position: absolute;
 
-    left: 55px;
-    bottom: 25px;
+  left: 55px;
+  bottom: 25px;
 
-    font-size: 28px;
+  font-size: 28px;
 
-    z-index: 6;
+  z-index: 6;
 }
-
 
 /* ===============================
    FLOOR
 ================================ */
 
 .floor {
-    position: absolute;
+  position: absolute;
 
-    bottom: 23px;
-    left: 45px;
+  bottom: 23px;
+  left: 45px;
 
-    width: 235px;
-    height: 6px;
+  width: 235px;
+  height: 6px;
 
-    background: #172b48;
+  background: #172b48;
 
-    border-radius: 10px;
+  border-radius: 10px;
 }
-
 
 /* ===============================
    PAGE TITLE
 ================================ */
 
 .page-title {
-    text-align: center;
+  text-align: center;
 
-    font-size: 11px;
+  font-size: 11px;
 
-    font-weight: bold;
+  font-weight: bold;
 
-    margin-top: 10px;
+  margin-top: 10px;
 
-    color: #182238;
+  color: #182238;
 }
-
 
 /* ===============================
    RESPONSIVE
 ================================ */
 
 @media (max-width: 800px) {
+  .logo {
+    width: auto;
+  }
 
-    .logo {
-        width: auto;
-    }
+  nav {
+    display: none;
+  }
 
-    nav {
-        display: none;
-    }
+  .navbar {
+    justify-content: space-between;
+  }
 
-    .navbar {
-        justify-content: space-between;
-    }
+  .hero {
+    flex-direction: column;
 
-    .hero {
-        flex-direction: column;
+    padding: 30px 20px;
+  }
 
-        padding: 30px 20px;
-    }
+  .hero-content {
+    width: 100%;
 
-    .hero-content {
-        width: 100%;
+    text-align: center;
 
-        text-align: center;
+    padding: 0;
+  }
 
-        padding: 0;
-    }
+  .hero-content p {
+    width: 100%;
+  }
 
-    .hero-content p {
-        width: 100%;
-    }
+  .hero-buttons {
+    justify-content: center;
+  }
 
-    .hero-buttons {
-        justify-content: center;
-    }
+  .hero-image {
+    width: 100%;
 
-    .hero-image {
-        width: 100%;
-
-        margin-top: 20px;
-    }
+    margin-top: 20px;
+  }
 }
 
-
 @media (max-width: 500px) {
+  .navbar {
+    padding: 0 10px;
+  }
 
-    .navbar {
-        padding: 0 10px;
-    }
+  .logo {
+    font-size: 12px;
+  }
 
-    .logo {
-        font-size: 12px;
-    }
+  .nav-buttons button {
+    padding: 0 7px;
 
-    .nav-buttons button {
-        padding: 0 7px;
+    font-size: 8px;
+  }
 
-        font-size: 8px;
-    }
-
-    .hero-content h1 {
-        font-size: 25px;
-    }
+  .hero-content h1 {
+    font-size: 25px;
+  }
 }

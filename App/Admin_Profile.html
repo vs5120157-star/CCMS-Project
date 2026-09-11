@@ -1,64 +1,98 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CCMS - Admin Profile</title>
-    <link rel="stylesheet" href="Admin_Profile.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</head>
-<body>
-<div class="dashboard">
-    <aside class="sidebar">
-        <div class="logo"><div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div><span>CCMS</span></div>
-        <nav class="menu">
-            <a href="#" data-route="Admin_Dashboard.html" class="menu-item"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
-            <a href="#" data-route="Manage_Complaint.html" class="menu-item"><i class="fa-solid fa-clipboard-list"></i><span>Manage Complaints</span></a>
-            <a href="#" data-route="Categories.html" class="menu-item"><i class="fa-solid fa-layer-group"></i><span>Categories</span></a>
-            <a href="#" data-route="Users.html" class="menu-item"><i class="fa-solid fa-users"></i><span>Users</span></a>
-            <a href="#" data-route="Reports.html" class="menu-item"><i class="fa-solid fa-chart-column"></i><span>Reports</span></a>
-            <a href="#logout" class="menu-item logout"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></a>
-        </nav>
-    </aside>
-
-    <main class="main-content">
-        <div class="content-card">
-            <div class="page-heading">
-                <div>
-                    <p class="eyebrow">ADMINISTRATION</p>
-                    <h1>Admin Profile</h1>
-                    <p class="subtitle">Manage your administrator account details.</p>
-                </div>
-                <div class="profile-badge"><i class="fa-solid fa-user-shield"></i><span id="profile-role-badge">Administrator</span></div>
-            </div>
-
-            <div class="profile-layout">
-                <section class="identity-card">
-                    <div class="avatar"><i class="fa-solid fa-user"></i></div>
-                    <h2 id="profile-name">Administrator</h2>
-                    <p id="profile-email">admin@example.com</p>
-                    <span class="account-status">Active account</span>
-                </section>
-
-                <form class="profile-form" id="admin-profile-form">
-                    <div class="section-heading"><h2>Account details</h2><span>Admin account</span></div>
-                    <label for="admin-name">Full Name</label>
-                    <input id="admin-name" name="name" type="text" required maxlength="60">
-                    <label for="admin-email">Email</label>
-                    <input id="admin-email" name="email" type="email" required>
-                    <label for="admin-role">Role</label>
-                    <select id="admin-role" name="role">
-                        <option value="Admin">Administrator</option>
-                        <option value="Moderator">Moderator</option>
-                        <option value="Support Staff">Support Staff</option>
-                    </select>
-                    <button type="submit"><i class="fa-solid fa-check"></i> Save Changes</button>
-                    <p id="admin-profile-message" role="status"></p>
-                </form>
-            </div>
+    <link rel="stylesheet" href="Admin_Profile.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="dashboard">
+      <aside class="sidebar">
+        <div class="logo">
+          <div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <span>CCMS</span>
         </div>
-    </main>
-</div>
-<script src="app.js"></script>
-</body>
+        <nav class="menu">
+          <a href="#" data-route="Admin_Dashboard.html" class="menu-item"
+            ><i class="fa-solid fa-house"></i><span>Dashboard</span></a
+          >
+          <a href="#" data-route="Manage_Complaint.html" class="menu-item"
+            ><i class="fa-solid fa-clipboard-list"></i
+            ><span>Manage Complaints</span></a
+          >
+          <a href="#" data-route="Categories.html" class="menu-item"
+            ><i class="fa-solid fa-layer-group"></i><span>Categories</span></a
+          >
+          <a href="#" data-route="Users.html" class="menu-item"
+            ><i class="fa-solid fa-users"></i><span>Users</span></a
+          >
+          <a href="#" data-route="Reports.html" class="menu-item"
+            ><i class="fa-solid fa-chart-column"></i><span>Reports</span></a
+          >
+          <a href="#logout" class="menu-item logout"
+            ><i class="fa-solid fa-right-from-bracket"></i
+            ><span>Logout</span></a
+          >
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <div class="content-card">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">ADMINISTRATION</p>
+              <h1>Admin Profile</h1>
+              <p class="subtitle">Manage your administrator account details.</p>
+            </div>
+            <div class="profile-badge">
+              <i class="fa-solid fa-user-shield"></i
+              ><span id="profile-role-badge">Administrator</span>
+            </div>
+          </div>
+
+          <div class="profile-layout">
+            <section class="identity-card">
+              <div class="avatar"><i class="fa-solid fa-user"></i></div>
+              <h2 id="profile-name">Administrator</h2>
+              <p id="profile-email">admin@example.com</p>
+              <span class="account-status">Active account</span>
+            </section>
+
+            <form class="profile-form" id="admin-profile-form">
+              <div class="section-heading">
+                <h2>Account details</h2>
+                <span>Admin account</span>
+              </div>
+              <label for="admin-name">Full Name</label>
+              <input
+                id="admin-name"
+                name="name"
+                type="text"
+                required
+                maxlength="60"
+              />
+              <label for="admin-email">Email</label>
+              <input id="admin-email" name="email" type="email" required />
+              <label for="admin-role">Role</label>
+              <select id="admin-role" name="role">
+                <option value="Admin">Administrator</option>
+                <option value="Moderator">Moderator</option>
+                <option value="Support Staff">Support Staff</option>
+              </select>
+              <button type="submit">
+                <i class="fa-solid fa-check"></i> Save Changes
+              </button>
+              <p id="admin-profile-message" role="status"></p>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
 </html>

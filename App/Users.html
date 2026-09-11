@@ -1,60 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CCMS - Users</title>
-    <link rel="stylesheet" href="Users.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</head>
-<body>
-<div class="dashboard">
-    <aside class="sidebar">
-        <div class="logo"><div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div><span>CCMS</span></div>
-        <nav class="menu">
-            <a href="#" data-route="Admin_Dashboard.html" class="menu-item"><i class="fa-solid fa-house"></i><span>Dashboard</span></a>
-            <a href="#" data-route="Manage_Complaint.html" class="menu-item"><i class="fa-solid fa-clipboard-list"></i><span>Manage Complaints</span></a>
-            <a href="#" data-route="Categories.html" class="menu-item"><i class="fa-solid fa-layer-group"></i><span>Categories</span></a>
-            <a href="#" data-route="Users.html" class="menu-item active"><i class="fa-solid fa-users"></i><span>Users</span></a>
-            <a href="#" data-route="Reports.html" class="menu-item"><i class="fa-solid fa-chart-column"></i><span>Reports</span></a>
-            <a href="#logout" class="menu-item logout"><i class="fa-solid fa-right-from-bracket"></i><span>Logout</span></a>
-        </nav>
-    </aside>
-
-    <main class="main-content">
-        <div class="content-card">
-            <div class="page-heading">
-                <div>
-                    <p class="eyebrow">USER MANAGEMENT</p>
-                    <h1>Users</h1>
-                    <p class="subtitle">View registered students and administrators.</p>
-                </div>
-                <div class="user-count"><strong id="user-count">0</strong><span>Total users</span></div>
-            </div>
-
-            <div class="toolbar">
-                <label class="search-box" for="user-search">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input id="user-search" type="search" placeholder="Search users...">
-                </label>
-                <select id="role-filter" aria-label="Filter by role">
-                    <option value="All">All roles</option>
-                    <option value="Student">Students</option>
-                    <option value="Admin">Administrators</option>
-                </select>
-            </div>
-
-            <div class="table-container">
-                <table>
-                    <thead>
-                        <tr><th>#</th><th>User</th><th>Email</th><th>Phone</th><th>Role</th><th>Status</th></tr>
-                    </thead>
-                    <tbody id="users-body"></tbody>
-                </table>
-            </div>
+    <link rel="stylesheet" href="Users.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="dashboard">
+      <aside class="sidebar">
+        <div class="logo">
+          <div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <span>CCMS</span>
         </div>
-    </main>
-</div>
-<script src="app.js"></script>
-</body>
+        <nav class="menu">
+          <a href="#" data-route="Admin_Dashboard.html" class="menu-item"
+            ><i class="fa-solid fa-house"></i><span>Dashboard</span></a
+          >
+          <a href="#" data-route="Manage_Complaint.html" class="menu-item"
+            ><i class="fa-solid fa-clipboard-list"></i
+            ><span>Manage Complaints</span></a
+          >
+          <a href="#" data-route="Categories.html" class="menu-item"
+            ><i class="fa-solid fa-layer-group"></i><span>Categories</span></a
+          >
+          <a href="#" data-route="Users.html" class="menu-item active"
+            ><i class="fa-solid fa-users"></i><span>Users</span></a
+          >
+          <a href="#" data-route="Reports.html" class="menu-item"
+            ><i class="fa-solid fa-chart-column"></i><span>Reports</span></a
+          >
+          <a href="#logout" class="menu-item logout"
+            ><i class="fa-solid fa-right-from-bracket"></i
+            ><span>Logout</span></a
+          >
+        </nav>
+      </aside>
+
+      <main class="main-content">
+        <div class="content-card">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">USER MANAGEMENT</p>
+              <h1>Users</h1>
+              <p class="subtitle">
+                View registered students and administrators.
+              </p>
+            </div>
+            <div class="user-count">
+              <strong id="user-count">0</strong><span>Total users</span>
+            </div>
+          </div>
+
+          <div class="toolbar">
+            <label class="search-box" for="user-search">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input
+                id="user-search"
+                type="search"
+                placeholder="Search users..."
+              />
+            </label>
+            <select id="role-filter" aria-label="Filter by role">
+              <option value="All">All roles</option>
+              <option value="Student">Students</option>
+              <option value="Admin">Administrators</option>
+            </select>
+          </div>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>User</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Role</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="users-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script src="app.js"></script>
+  </body>
 </html>

@@ -1,78 +1,81 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>CCMS - College Complaint Management System</title>
 
-    <link rel="stylesheet" href="Home.css">
-</head>
+    <link rel="stylesheet" href="Home.css" />
+  </head>
 
-<body>
-
+  <body>
     <!-- ================= NAVBAR ================= -->
 
     <header class="navbar">
+      <div class="logo">
+        <div class="logo-icon">🛡</div>
+        <span>CCMS</span>
+      </div>
 
-        <div class="logo">
-            <div class="logo-icon">🛡</div>
-            <span>CCMS</span>
-        </div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#" data-route="About.html">About</a>
+        <a href="#" data-route="Features.html">Features</a>
+        <a href="#" data-route="Contact.html">Contact</a>
+      </nav>
 
-        <nav>
-            <a href="#">Home</a>
-            <a href="#" data-route="About.html">About</a>
-            <a href="#" data-route="Features.html">Features</a>
-            <a href="#" data-route="Contact.html">Contact</a>
-        </nav>
-
-        <div class="nav-buttons">
-            <a class="student-btn" id="student-nav-link" href="#" data-route="Login.html">Student Login</a>
-            <a class="admin-btn" href="#" data-route="Admin_Login.html">Admin Login</a>
-        </div>
-
+      <div class="nav-buttons">
+        <a
+          class="student-btn"
+          id="student-nav-link"
+          href="#"
+          data-route="Login.html"
+          >Student Login</a
+        >
+        <a class="admin-btn" href="#" data-route="Admin_Login.html"
+          >Admin Login</a
+        >
+      </div>
     </header>
-
 
     <!-- ================= HERO SECTION ================= -->
 
     <section class="hero">
+      <div class="hero-content">
+        <h1>
+          COLLEGE<br />
+          <span>COMPLAINT</span><br />
+          MANAGEMENT<br />
+          SYSTEM
+        </h1>
 
-        <div class="hero-content">
+        <p>
+          A smart platform to register, track and resolve complaints easily. We
+          are here to make your college experience better.
+        </p>
 
-            <h1>
-                COLLEGE<br>
-                <span>COMPLAINT</span><br>
-                MANAGEMENT<br>
-                SYSTEM
-            </h1>
-
-            <p>
-                A smart platform to register, track and resolve
-                complaints easily. We are here to make your
-                college experience better.
-            </p>
-
-            <div class="hero-buttons">
-
-                <a class="secondary-btn student-register-btn" href="#" data-route="Registration.html">
-                    Student Register
-                </a>
-
-            </div>
-
+        <div class="hero-buttons">
+          <a
+            class="secondary-btn student-register-btn"
+            href="#"
+            data-route="Registration.html"
+          >
+            Student Register
+          </a>
         </div>
+      </div>
 
+      <!-- ================= ILLUSTRATION ================= -->
 
-        <!-- ================= ILLUSTRATION ================= -->
-
-        <div class="hero-image">
-            <img src="Home.png" alt="Student using a laptop to manage college complaints">
-        </div>
-
+      <div class="hero-image">
+        <img
+          src="Home.png"
+          alt="Student using a laptop to manage college complaints"
+        />
+      </div>
     </section>
 
     <script src="app.js"></script>
-</body>
+  </body>
 </html>

@@ -1,49 +1,77 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Contact.css">
-    <link rel="stylesheet" href="Student_Register.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="Contact.css" />
+    <link rel="stylesheet" href="Student_Register.css" />
+  </head>
+  <body>
     <header class="navbar">
-        <a class="logo" href="#" data-route="Home.html">
-            <span class="logo-icon">🛡</span>
-            <span>CCMS</span>
-        </a>
-        <nav>
-            <a href="#" data-route="Home.html">Home</a>
-            <a href="#" data-route="About.html">About</a>
-            <a href="#" data-route="Features.html">Features</a>
-            <a href="#" class="active">Contact</a>
-        </nav>
-        <div class="nav-buttons">
-            <a class="student-btn" href="#" data-route="Login.html">Student Login</a>
-            <a class="admin-btn" href="#" data-route="Admin_Login.html">Admin Login</a>
-        </div>
+      <a class="logo" href="#" data-route="Home.html">
+        <span class="logo-icon">🛡</span>
+        <span>CCMS</span>
+      </a>
+      <nav>
+        <a href="#" data-route="Home.html">Home</a>
+        <a href="#" data-route="About.html">About</a>
+        <a href="#" data-route="Features.html">Features</a>
+        <a href="#" class="active">Contact</a>
+      </nav>
+      <div class="nav-buttons">
+        <a class="student-btn" href="#" data-route="Login.html"
+          >Student Login</a
+        >
+        <a class="admin-btn" href="#" data-route="Admin_Login.html"
+          >Admin Login</a
+        >
+      </div>
     </header>
 
     <main class="contact-page">
-        <section class="contact-hero">
-            <div class="contact-copy">
-                <h1>We are here to help your complaint move forward.</h1>
-                <p class="intro">Need support with a complaint or your account? Sign in to raise an issue, track its progress, or manage resolutions from the right portal.</p>
-                <div class="action-buttons">
-                    <a class="secondary-btn student-register-btn" href="#" data-route="Registration.html">Student Register</a>
-                </div>
-            </div>
-            <div class="contact-image">
-                <img src="Home.png" alt="Student using CCMS on a laptop">
-            </div>
-        </section>
+      <section class="contact-hero">
+        <div class="contact-copy">
+          <h1>We are here to help your complaint move forward.</h1>
+          <p class="intro">
+            Need support with a complaint or your account? Sign in to raise an
+            issue, track its progress, or manage resolutions from the right
+            portal.
+          </p>
+          <div class="action-buttons">
+            <a
+              class="secondary-btn student-register-btn"
+              href="#"
+              data-route="Registration.html"
+              >Student Register</a
+            >
+          </div>
+        </div>
+        <div class="contact-image">
+          <img src="Home.png" alt="Student using CCMS on a laptop" />
+        </div>
+      </section>
 
-        <section class="contact-grid" aria-label="Contact options">
-            <article class="contact-card"><span class="contact-icon">✉</span><h2>Email Support</h2><p>support@ccms.example.com</p><span>For account and complaint help</span></article>
-            <article class="contact-card"><span class="contact-icon">⌖</span><h2>Student Help Desk</h2><p>Administration Block, Room 204</p><span>Monday to Friday, 9:00 AM - 5:00 PM</span></article>
-            <article class="contact-card"><span class="contact-icon">☎</span><h2>Call Support</h2><p>+91 1800 123 4567</p><span>For urgent campus issues</span></article>
-        </section>
+      <section class="contact-grid" aria-label="Contact options">
+        <article class="contact-card">
+          <span class="contact-icon">✉</span>
+          <h2>Email Support</h2>
+          <p>support@ccms.example.com</p>
+          <span>For account and complaint help</span>
+        </article>
+        <article class="contact-card">
+          <span class="contact-icon">⌖</span>
+          <h2>Student Help Desk</h2>
+          <p>Administration Block, Room 204</p>
+          <span>Monday to Friday, 9:00 AM - 5:00 PM</span>
+        </article>
+        <article class="contact-card">
+          <span class="contact-icon">☎</span>
+          <h2>Call Support</h2>
+          <p>+91 1800 123 4567</p>
+          <span>For urgent campus issues</span>
+        </article>
+      </section>
     </main>
     <script src="app.js"></script>
-</body>
+  </body>
 </html>

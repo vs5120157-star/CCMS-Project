@@ -1,63 +1,132 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>CCMS Admin Login</title>
-	<link rel="stylesheet" href="Admin_Login.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-</head>
-<body>
-<div class="login-container">
-	<section class="welcome-section">
-		<div class="logo"><div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div><span>CCMS</span></div>
-		<div class="welcome-content">
-			<h1>Admin Portal</h1>
-			<p>Login to manage and<br>resolve complaints.</p>
-			<div class="admin-image"><img src="Admin.png" alt="Administrator using a laptop"></div>
-		</div>
-	</section>
-	<section class="form-section">
-		<div class="form-wrapper">
-			<h2>Admin Login</h2>
-			<form id="admin-login-form">
-				<div class="form-group"><label for="admin-email">Email</label><input id="admin-email" name="email" type="email" value="admin@example.com" placeholder="Enter admin email" required></div>
-				<div class="form-group"><label for="admin-password">Password</label><div class="password-box"><input id="admin-password" name="password" type="password" value="Admin@123" placeholder="Enter password" required><button type="button" id="eye" class="password-toggle" aria-label="Show password"><i class="fa-solid fa-eye"></i></button></div></div>
-				<div class="options"><label class="remember"><input type="checkbox" id="admin-remember-me" name="rememberMe"><span>Remember me</span></label><a href="#">Forgot Password?</a></div>
-				<button class="login-btn" type="submit">Login as Admin</button>
-			</form>
-			<p id="form-message" role="alert"></p>
-			<p class="back-link"><a href="#" data-route="Home.html">Back to Home</a></p>
-		</div>
-	</section>
-</div>
-<script src="app.js"></script>
-<script>
-	const password = document.getElementById('admin-password');
-	const eye = document.getElementById('eye');
-	eye.addEventListener('click', () => {
-		const hidden = password.type === 'password';
-		password.type = hidden ? 'text' : 'password';
-		eye.querySelector('i').className = hidden ? 'fa-solid fa-eye-slash' : 'fa-solid fa-eye';
-		eye.setAttribute('aria-label', hidden ? 'Hide password' : 'Show password');
-	});
-	document.getElementById('admin-login-form').addEventListener('submit', async (event) => {
-		event.preventDefault();
-		const email = event.currentTarget.email.value.trim();
-		const passwordValue = event.currentTarget.password.value;
-		const rememberMe = event.currentTarget.rememberMe.checked;
-		try {
-			const result = await apiRequest('/auth/login', { method: 'POST', body: JSON.stringify({ email, password: passwordValue, role: 'Admin' }) });
-			localStorage.setItem('ccmsToken', result.token);
-			localStorage.setItem('rdecAdmin', JSON.stringify(result.user));
-			localStorage.setItem('rdecAdminRemembered', String(rememberMe));
-			const registrationComplete = result.user.adminRegistrationComplete === true;
-			localStorage.setItem('rdecAdminRegistrationComplete', String(registrationComplete));
-			navigateTo(registrationComplete ? 'Admin_Dashboard.html' : 'Admin_Register.html');
-		} catch (error) {
-			document.getElementById('form-message').textContent = error.message;
-		}
-	});
-</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CCMS Admin Login</title>
+    <link rel="stylesheet" href="Admin_Login.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="login-container">
+      <section class="welcome-section">
+        <div class="logo">
+          <div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <span>CCMS</span>
+        </div>
+        <div class="welcome-content">
+          <h1>Admin Portal</h1>
+          <p>Login to manage and<br />resolve complaints.</p>
+          <div class="admin-image">
+            <img src="Admin.png" alt="Administrator using a laptop" />
+          </div>
+        </div>
+      </section>
+      <section class="form-section">
+        <div class="form-wrapper">
+          <h2>Admin Login</h2>
+          <form id="admin-login-form">
+            <div class="form-group">
+              <label for="admin-email">Email</label
+              ><input
+                id="admin-email"
+                name="email"
+                type="email"
+                value="admin@example.com"
+                placeholder="Enter admin email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="admin-password">Password</label>
+              <div class="password-box">
+                <input
+                  id="admin-password"
+                  name="password"
+                  type="password"
+                  value="Admin@123"
+                  placeholder="Enter password"
+                  required
+                /><button
+                  type="button"
+                  id="eye"
+                  class="password-toggle"
+                  aria-label="Show password"
+                >
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+              </div>
+            </div>
+            <div class="options">
+              <label class="remember"
+                ><input
+                  type="checkbox"
+                  id="admin-remember-me"
+                  name="rememberMe"
+                /><span>Remember me</span></label
+              ><a href="#">Forgot Password?</a>
+            </div>
+            <button class="login-btn" type="submit">Login as Admin</button>
+          </form>
+          <p id="form-message" role="alert"></p>
+          <p class="back-link">
+            <a href="#" data-route="Home.html">Back to Home</a>
+          </p>
+        </div>
+      </section>
+    </div>
+    <script src="app.js"></script>
+    <script>
+      const password = document.getElementById("admin-password");
+      const eye = document.getElementById("eye");
+      eye.addEventListener("click", () => {
+        const hidden = password.type === "password";
+        password.type = hidden ? "text" : "password";
+        eye.querySelector("i").className = hidden
+          ? "fa-solid fa-eye-slash"
+          : "fa-solid fa-eye";
+        eye.setAttribute(
+          "aria-label",
+          hidden ? "Hide password" : "Show password",
+        );
+      });
+      document
+        .getElementById("admin-login-form")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const email = event.currentTarget.email.value.trim();
+          const passwordValue = event.currentTarget.password.value;
+          const rememberMe = event.currentTarget.rememberMe.checked;
+          try {
+            const result = await apiRequest("/auth/login", {
+              method: "POST",
+              body: JSON.stringify({
+                email,
+                password: passwordValue,
+                role: "Admin",
+              }),
+            });
+            localStorage.setItem("ccmsToken", result.token);
+            localStorage.setItem("rdecAdmin", JSON.stringify(result.user));
+            localStorage.setItem("rdecAdminRemembered", String(rememberMe));
+            const registrationComplete =
+              result.user.adminRegistrationComplete === true;
+            localStorage.setItem(
+              "rdecAdminRegistrationComplete",
+              String(registrationComplete),
+            );
+            navigateTo(
+              registrationComplete
+                ? "Admin_Dashboard.html"
+                : "Admin_Register.html",
+            );
+          } catch (error) {
+            document.getElementById("form-message").textContent = error.message;
+          }
+        });
+    </script>
+  </body>
 </html>

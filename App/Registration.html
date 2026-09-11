@@ -1,125 +1,171 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CCMS - Student Registration</title>
 
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
 
-    <link rel="stylesheet" href="Registration.css">
-</head>
+    <link rel="stylesheet" href="Registration.css" />
+  </head>
 
-<body>
-
-<div class="register-container">
-
-    <!-- LEFT SIDE -->
-    <div class="left-section">
-
+  <body>
+    <div class="register-container">
+      <!-- LEFT SIDE -->
+      <div class="left-section">
         <div class="logo">
-            <div class="logo-icon">
-                <i class="fa-solid fa-shield-halved"></i>
-            </div>
-            <span>CCMS</span>
+          <div class="logo-icon">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <span>CCMS</span>
         </div>
 
         <div class="left-content">
-            <h1>Student<br>Registration</h1>
+          <h1>Student<br />Registration</h1>
 
-            <p>
-                Create your account to<br>
-                get started.
-            </p>
+          <p>
+            Create your account to<br />
+            get started.
+          </p>
         </div>
 
         <div class="illustration">
-            <img src="Home.png" alt="Student using a laptop">
+          <img src="Home.png" alt="Student using a laptop" />
         </div>
+      </div>
 
-    </div>
-
-
-    <!-- RIGHT SIDE -->
-    <div class="right-section">
-
+      <!-- RIGHT SIDE -->
+      <div class="right-section">
         <h2>Create New Account</h2>
 
         <form id="registration-form">
+          <div class="form-group">
+            <label for="fullName">Full Name</label>
+            <input
+              type="text"
+              id="fullName"
+              name="fullName"
+              autocomplete="name"
+              placeholder="Enter full name"
+              required
+            />
+          </div>
 
-            <div class="form-group">
-                <label for="fullName">Full Name</label>
-                <input type="text" id="fullName" name="fullName" autocomplete="name" placeholder="Enter full name" required>
-            </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autocomplete="email"
+              placeholder="Enter email"
+              required
+            />
+          </div>
 
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" autocomplete="email" placeholder="Enter email" required>
-            </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              autocomplete="tel"
+              placeholder="Enter phone number"
+              required
+            />
+          </div>
 
-            <div class="form-group">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="Enter phone number" required>
-            </div>
+          <div class="form-group">
+            <label for="rollNumber">Roll Number</label>
+            <input
+              type="text"
+              id="rollNumber"
+              name="rollNumber"
+              placeholder="Enter roll number"
+              required
+            />
+          </div>
 
-            <div class="form-group">
-                <label for="rollNumber">Roll Number</label>
-                <input type="text" id="rollNumber" name="rollNumber" placeholder="Enter roll number" required>
-            </div>
+          <div class="form-group password-field">
+            <label>Password</label>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              autocomplete="new-password"
+              placeholder="Enter password"
+              required
+            />
+            <i
+              class="fa-regular fa-eye eye password-toggle"
+              role="button"
+              tabindex="0"
+              aria-label="Show password"
+            ></i>
+          </div>
 
-            <div class="form-group password-field">
-                <label>Password</label>
-                <input type="password" id="password" name="password" autocomplete="new-password" placeholder="Enter password" required>
-                <i class="fa-regular fa-eye eye password-toggle" role="button" tabindex="0" aria-label="Show password"></i>
-            </div>
+          <div class="form-group password-field">
+            <label>Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              name="confirmPassword"
+              autocomplete="new-password"
+              placeholder="Confirm password"
+            />
+            <i
+              class="fa-regular fa-eye eye password-toggle"
+              role="button"
+              tabindex="0"
+              aria-label="Show password"
+            ></i>
+          </div>
 
-            <div class="form-group password-field">
-                <label>Confirm Password</label>
-                  <input type="password" id="confirmPassword" name="confirmPassword" autocomplete="new-password"
-                       placeholder="Confirm password">
-                <i class="fa-regular fa-eye eye password-toggle" role="button" tabindex="0" aria-label="Show password"></i>
-            </div>
-
-            <button class="student-register-btn" type="submit">Register</button>
-
+          <button class="student-register-btn" type="submit">Register</button>
         </form>
 
         <p id="form-message" role="alert"></p>
 
         <p class="login-text">
-            Already have an account?
-            <a href="#" data-route="Login.html">Login here</a>
+          Already have an account?
+          <a href="#" data-route="Login.html">Login here</a>
         </p>
-
+      </div>
     </div>
 
-</div>
+    <script>
+      const message = new URLSearchParams(window.location.search).get(
+        "message",
+      );
+      if (message)
+        document.getElementById("form-message").textContent = message;
 
-<script>
-    const message = new URLSearchParams(window.location.search).get('message');
-    if (message) document.getElementById('form-message').textContent = message;
-
-    document.querySelectorAll('.password-toggle').forEach((toggle) => {
+      document.querySelectorAll(".password-toggle").forEach((toggle) => {
         const password = toggle.previousElementSibling;
         const changeVisibility = () => {
-            const isHidden = password.type === 'password';
-            password.type = isHidden ? 'text' : 'password';
-            toggle.classList.toggle('fa-eye', !isHidden);
-            toggle.classList.toggle('fa-eye-slash', isHidden);
-            toggle.setAttribute('aria-label', isHidden ? 'Hide password' : 'Show password');
+          const isHidden = password.type === "password";
+          password.type = isHidden ? "text" : "password";
+          toggle.classList.toggle("fa-eye", !isHidden);
+          toggle.classList.toggle("fa-eye-slash", isHidden);
+          toggle.setAttribute(
+            "aria-label",
+            isHidden ? "Hide password" : "Show password",
+          );
         };
-        toggle.addEventListener('click', changeVisibility);
-        toggle.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                changeVisibility();
-            }
+        toggle.addEventListener("click", changeVisibility);
+        toggle.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            changeVisibility();
+          }
         });
-    });
-</script>
-<script src="app.js"></script>
-
-</body>
+      });
+    </script>
+    <script src="app.js"></script>
+  </body>
 </html>

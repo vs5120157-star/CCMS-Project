@@ -1,11 +1,283 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { min-height: 100vh; color: #111d32; background: #f7f9fd; font-family: Arial, Helvetica, sans-serif; }
-.navbar { width: 100%; min-height: 50px; display: flex; align-items: center; gap: 20px; padding: 0 25px; color: white; background: linear-gradient(90deg, #061c43, #0b2c62); box-shadow: 0 2px 6px rgba(0,0,0,.2); }
-.logo { display: flex; align-items: center; gap: 7px; width: 240px; color: white; font-size: 15px; font-weight: bold; text-decoration: none; }.logo-icon { width: 22px; height: 22px; display: grid; place-items: center; border-radius: 4px; background: #eaf2ff; font-size: 13px; }
-nav { display: flex; justify-content: center; align-items: center; flex: 1; gap: 20px; }nav a { padding: 17px 0; color: white; font-size: 10px; text-decoration: none; }nav a:hover, nav a.active { color: #53a0ff; }
-.nav-buttons { display: flex; gap: 8px; }.student-btn, .admin-btn { min-height: 27px; display: inline-flex; align-items: center; padding: 0 13px; border-radius: 4px; color: white; font-size: 9px; line-height: 1; text-decoration: none; }.student-btn { border: 1px solid #6682aa; }.admin-btn { border: 1px solid #1475ef; background: #0965dd; }.student-btn:hover { background: #164889; }.admin-btn:hover { background: #0755ba; }
-.contact-page { width: min(1200px, calc(100% - 48px)); margin: 10px auto 0; }.contact-hero { min-height: 430px; display: flex; align-items: center; gap: 30px; padding: 38px 48px; overflow: hidden; border: 1px solid #e9edf4; border-radius: 6px; background: white; box-shadow: 0 1px 5px rgba(0,0,0,.08); }.contact-copy { width: 52%; }.eyebrow { margin-bottom: 12px; color: #1266dc; font-size: 10px; font-weight: 700; letter-spacing: .16em; }.contact-copy h1 { max-width: 500px; color: #111d32; font-size: 34px; line-height: 1.1; }.intro { max-width: 430px; margin-top: 17px; color: #445064; font-size: 13px; line-height: 1.65; }.action-buttons { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 23px; }.primary-btn, .secondary-btn { min-height: 35px; display: inline-flex; align-items: center; padding: 0 15px; border-radius: 4px; font-size: 10px; text-decoration: none; }.primary-btn { color: white; background: #0967df; }.secondary-btn { border: 1px solid #b8c7dd; color: #1557a5; background: white; }.text-btn { color: #1266dc; font-size: 10px; font-weight: 600; text-decoration: none; }.text-btn span { margin-left: 4px; font-size: 14px; }.primary-btn:hover { background: #0755ba; }.secondary-btn:hover { background: #f1f6fd; }
-.contact-image { width: 48%; display: flex; justify-content: center; align-items: center; }.contact-image img { display: block; width: min(100%, 460px); height: auto; object-fit: contain; }
-.contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 14px; }.contact-card { min-height: 145px; padding: 20px; border: 1px solid #e4eaf3; border-radius: 6px; background: white; }.contact-icon { width: 30px; height: 30px; display: grid; place-items: center; border-radius: 6px; color: #1266dc; background: #e8f3ff; font-size: 14px; }.contact-card h2 { margin-top: 13px; color: #202b3e; font-size: 14px; }.contact-card p { margin-top: 7px; color: #303d52; font-size: 11px; font-weight: 600; }.contact-card span:last-child { display: block; margin-top: 6px; color: #697589; font-size: 10px; line-height: 1.5; }
-@media (max-width: 800px) { .navbar { padding: 0 12px; }.logo { width: auto; }.navbar nav { display: none; }.contact-page { width: min(100% - 28px, 600px); }.contact-hero { flex-direction: column; align-items: stretch; padding: 28px 22px; }.contact-copy, .contact-image { width: 100%; }.contact-copy h1 { font-size: 28px; }.contact-image { order: -1; }.contact-grid { grid-template-columns: 1fr; }.contact-card { min-height: auto; } }
-@media (max-width: 480px) { .nav-buttons { gap: 5px; }.student-btn, .admin-btn { padding: 0 8px; font-size: 8px; }.contact-copy h1 { font-size: 25px; }.contact-image img { max-height: 210px; }.action-buttons { align-items: stretch; flex-direction: column; }.primary-btn, .secondary-btn { justify-content: center; }.text-btn { padding: 5px 0; } }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  color: #111d32;
+  background: #f7f9fd;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.navbar {
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 25px;
+  color: white;
+  background: linear-gradient(90deg, #061c43, #0b2c62);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: 240px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  text-decoration: none;
+}
+.logo-icon {
+  width: 22px;
+  height: 22px;
+  display: grid;
+  place-items: center;
+  border-radius: 4px;
+  background: #eaf2ff;
+  font-size: 13px;
+}
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  gap: 20px;
+}
+nav a {
+  padding: 17px 0;
+  color: white;
+  font-size: 10px;
+  text-decoration: none;
+}
+nav a:hover,
+nav a.active {
+  color: #53a0ff;
+}
+.nav-buttons {
+  display: flex;
+  gap: 8px;
+}
+.student-btn,
+.admin-btn {
+  min-height: 27px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 13px;
+  border-radius: 4px;
+  color: white;
+  font-size: 9px;
+  line-height: 1;
+  text-decoration: none;
+}
+.student-btn {
+  border: 1px solid #6682aa;
+}
+.admin-btn {
+  border: 1px solid #1475ef;
+  background: #0965dd;
+}
+.student-btn:hover {
+  background: #164889;
+}
+.admin-btn:hover {
+  background: #0755ba;
+}
+.contact-page {
+  width: min(1200px, calc(100% - 48px));
+  margin: 10px auto 0;
+}
+.contact-hero {
+  min-height: 430px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 38px 48px;
+  overflow: hidden;
+  border: 1px solid #e9edf4;
+  border-radius: 6px;
+  background: white;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.08);
+}
+.contact-copy {
+  width: 52%;
+}
+.eyebrow {
+  margin-bottom: 12px;
+  color: #1266dc;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+.contact-copy h1 {
+  max-width: 500px;
+  color: #111d32;
+  font-size: 34px;
+  line-height: 1.1;
+}
+.intro {
+  max-width: 430px;
+  margin-top: 17px;
+  color: #445064;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.action-buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 23px;
+}
+.primary-btn,
+.secondary-btn {
+  min-height: 35px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0 15px;
+  border-radius: 4px;
+  font-size: 10px;
+  text-decoration: none;
+}
+.primary-btn {
+  color: white;
+  background: #0967df;
+}
+.secondary-btn {
+  border: 1px solid #b8c7dd;
+  color: #1557a5;
+  background: white;
+}
+.text-btn {
+  color: #1266dc;
+  font-size: 10px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.text-btn span {
+  margin-left: 4px;
+  font-size: 14px;
+}
+.primary-btn:hover {
+  background: #0755ba;
+}
+.secondary-btn:hover {
+  background: #f1f6fd;
+}
+.contact-image {
+  width: 48%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact-image img {
+  display: block;
+  width: min(100%, 460px);
+  height: auto;
+  object-fit: contain;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+.contact-card {
+  min-height: 145px;
+  padding: 20px;
+  border: 1px solid #e4eaf3;
+  border-radius: 6px;
+  background: white;
+}
+.contact-icon {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  color: #1266dc;
+  background: #e8f3ff;
+  font-size: 14px;
+}
+.contact-card h2 {
+  margin-top: 13px;
+  color: #202b3e;
+  font-size: 14px;
+}
+.contact-card p {
+  margin-top: 7px;
+  color: #303d52;
+  font-size: 11px;
+  font-weight: 600;
+}
+.contact-card span:last-child {
+  display: block;
+  margin-top: 6px;
+  color: #697589;
+  font-size: 10px;
+  line-height: 1.5;
+}
+@media (max-width: 800px) {
+  .navbar {
+    padding: 0 12px;
+  }
+  .logo {
+    width: auto;
+  }
+  .navbar nav {
+    display: none;
+  }
+  .contact-page {
+    width: min(100% - 28px, 600px);
+  }
+  .contact-hero {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 28px 22px;
+  }
+  .contact-copy,
+  .contact-image {
+    width: 100%;
+  }
+  .contact-copy h1 {
+    font-size: 28px;
+  }
+  .contact-image {
+    order: -1;
+  }
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-card {
+    min-height: auto;
+  }
+}
+@media (max-width: 480px) {
+  .nav-buttons {
+    gap: 5px;
+  }
+  .student-btn,
+  .admin-btn {
+    padding: 0 8px;
+    font-size: 8px;
+  }
+  .contact-copy h1 {
+    font-size: 25px;
+  }
+  .contact-image img {
+    max-height: 210px;
+  }
+  .action-buttons {
+    align-items: stretch;
+    flex-direction: column;
+  }
+  .primary-btn,
+  .secondary-btn {
+    justify-content: center;
+  }
+  .text-btn {
+    padding: 5px 0;
+  }
+}
