@@ -2,6 +2,12 @@
 
 The backend uses the `ccms` database and creates `users`, `complaints`, and `categories` collections through Mongoose.
 
+The database setup script is in `database/ccms.mongodb.js`. Run it with `mongosh` when MongoDB is available:
+
+```bash
+mongosh < database/ccms.mongodb.js
+```
+
 1. Install and start MongoDB locally, or provide an Atlas URI in `backend/.env`.
 2. Copy `backend/.env.example` to `backend/.env` and set `MONGODB_URI` and `JWT_SECRET`.
 3. Run `npm install` inside `backend`, then run `npm start`.
