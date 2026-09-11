@@ -169,8 +169,10 @@ app.get('*', (req, res) => res.sendFile(path.join(appDirectory, 'Home.html')));
 mongoose.connect(process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/ccms')
   .then(async () => {
     await Category.bulkWrite(defaultCategories.map(([name, description]) => ({ updateOne: { filter: { name }, update: { $setOnInsert: { name, description } }, upsert: true } })));
-    if (process.env.ADMIN_EMAIL && process.env.ADMIN_PASSWORD && !(await User.exists({ email: process.env.ADMIN_EMAIL.toLowerCase(), role: 'Admin' }))) {
-      await User.create({ name: 'Administrator', email: process.env.ADMIN_EMAIL, password: await bcrypt.hash(process.env.ADMIN_PASSWORD, 10), role: 'Admin' });
+    const adminEmail = process.env.ADMIN_EMAIL || 'admin@example.com';
+    const adminPassword = process.env.ADMIN_PASSWORD || 'Admin@123';
+    if (!(await User.exists({ email: adminEmail.toLowerCase(), role: 'Admin' }))) {
+      await User.create({ name: 'Administrator', email: adminEmail, password: await bcrypt.hash(adminPassword, 10), role: 'Admin' });
     }
     app.listen(port, () => console.log(`CCMS server running at http://localhost:${port}`));
   })
