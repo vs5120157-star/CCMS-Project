@@ -151,6 +151,11 @@ nav a.active {
   color: #1557a5;
   background: white;
 }
+.secondary-btn.student-register-btn {
+  border-color: #0967df;
+  color: white;
+  background: #0967df;
+}
 .text-btn {
   color: #1266dc;
   font-size: 10px;
@@ -166,6 +171,9 @@ nav a.active {
 }
 .secondary-btn:hover {
   background: #f1f6fd;
+}
+.secondary-btn.student-register-btn:hover {
+  background: #0755ba;
 }
 .contact-image {
   width: 48%;
